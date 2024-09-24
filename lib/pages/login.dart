@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -46,7 +47,11 @@ class LoginState extends State<Login> {
             child: Column(
           children: [
             TextField(
-              style: const TextStyle(color: Color.fromRGBO(0, 0, 0, 0.5)),
+              keyboardType: TextInputType.emailAddress,
+              style: GoogleFonts.montserrat(
+                  color: const Color.fromRGBO(0, 0, 0, 0.4),
+                  fontSize: 13.0,
+                  fontWeight: FontWeight.w600),
               cursorColor: const Color.fromRGBO(102, 57, 115, 1),
               decoration: InputDecoration(
                 prefixIcon: const Icon(Icons.email,
@@ -62,11 +67,13 @@ class LoginState extends State<Login> {
               ),
             ),
             const SizedBox(
-              width: 15,
-              height: 15,
+              height: 16,
             ),
             TextField(
-              style: const TextStyle(color: Color.fromRGBO(0, 0, 0, 0.5)),
+              style: GoogleFonts.montserrat(
+                  color: const Color.fromRGBO(0, 0, 0, 0.4),
+                  fontSize: 13.0,
+                  fontWeight: FontWeight.w600),
               cursorColor: const Color.fromRGBO(102, 57, 115, 1),
               decoration: InputDecoration(
                 prefixIcon:
@@ -81,6 +88,50 @@ class LoginState extends State<Login> {
                 ),
               ),
             ),
+            const SizedBox(
+              height: 8,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  height: 15,
+                  width: 15,
+                  decoration: BoxDecoration(
+                    color: const Color.fromRGBO(217, 217, 217, 1),
+                    border: Border.all(
+                        color: const Color.fromRGBO(189, 0, 243, 1), width: 1),
+                  ),
+                ),
+                const SizedBox(
+                  width: 8,
+                ),
+                Text(
+                  "Lembre-se de mim",
+                  style: GoogleFonts.montserrat(
+                    color: const Color.fromRGBO(217, 217, 217, 1),
+                    fontSize: 10,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                const SizedBox(
+                  width: 16,
+                ),
+                GestureDetector(
+                  child: Text(
+                    "Esqueceu a senha?",
+                    style: GoogleFonts.montserrat(
+                      color: const Color.fromRGBO(189, 0, 243, 1),
+                      fontSize: 10,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  onTap: () {
+                    Navigator.of(context).pushNamed("/cadastro");
+                  },
+                ),
+              ],
+            )
           ],
         )),
       ),

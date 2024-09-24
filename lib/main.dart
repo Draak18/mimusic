@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mimusic/pages/cadastro.dart';
 import 'package:mimusic/pages/login.dart';
 
 void main() {
@@ -12,7 +13,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(primaryColor: Colors.purple),
-      home: const Login(),
+      initialRoute: "/",
+      routes: {
+        "/": (context) => const Login(),
+        "/cadastro": (context) => const Cadastro()
+      },
     );
   }
 }
