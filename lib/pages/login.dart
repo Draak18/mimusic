@@ -39,6 +39,49 @@ class LoginState extends State<Login> {
     );
   }
 
+  bool caixaMarcada = false;
+  Widget caixaDeMarcacao() {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          caixaMarcada = !caixaMarcada;
+        });
+      },
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Container(
+            height: 15,
+            width: 15,
+            decoration: BoxDecoration(
+              color: const Color.fromRGBO(217, 217, 217, 1),
+              border: Border.all(
+                color: const Color.fromRGBO(189, 0, 243, 1),
+                width: 1,
+              ),
+            ),
+          ),
+          caixaMarcada
+              ? SizedBox(
+                  height: 15,
+                  width: 15,
+                  child: Center(
+                    child: Text(
+                      'X',
+                      style: GoogleFonts.montserrat(
+                          fontSize: 12,
+                          color: const Color.fromRGBO(189, 0, 243, 1),
+                          height: 1,
+                          fontWeight: FontWeight.w600),
+                    ),
+                  ),
+                )
+              : Container(),
+        ],
+      ),
+    );
+  }
+
   Widget formulario() {
     return Center(
       child: Padding(
@@ -94,15 +137,7 @@ class LoginState extends State<Login> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  height: 15,
-                  width: 15,
-                  decoration: BoxDecoration(
-                    color: const Color.fromRGBO(217, 217, 217, 1),
-                    border: Border.all(
-                        color: const Color.fromRGBO(189, 0, 243, 1), width: 1),
-                  ),
-                ),
+                caixaDeMarcacao(),
                 const SizedBox(
                   width: 8,
                 ),
