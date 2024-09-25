@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mimusic/pages/cadastro.dart';
+import 'package:mimusic/pages/home.dart';
 import 'package:mimusic/pages/login.dart';
 
 void main() {
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       routes: {
         "/": (context) => const Login(),
-        "/cadastro": (context) => const Cadastro()
+        "/cadastro": (context) => const Cadastro(),
+        "/home": (context) => const Home(),
       },
     );
   }

@@ -82,93 +82,148 @@ class LoginState extends State<Login> {
     );
   }
 
+  bool mostrarSenha = false;
+  final keyForms = GlobalKey<FormState>();
   Widget formulario() {
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(40.0),
-        child: SingleChildScrollView(
-            child: Column(
-          children: [
-            TextField(
-              keyboardType: TextInputType.emailAddress,
-              style: GoogleFonts.montserrat(
-                  color: const Color.fromRGBO(0, 0, 0, 0.4),
-                  fontSize: 13.0,
-                  fontWeight: FontWeight.w600),
-              cursorColor: const Color.fromRGBO(102, 57, 115, 1),
-              decoration: InputDecoration(
-                prefixIcon: const Icon(Icons.email,
-                    color: Color.fromRGBO(0, 0, 0, 400)),
-                hintText: "Digite seu email",
-                hintStyle: const TextStyle(color: Color.fromRGBO(0, 0, 0, 400)),
-                fillColor: const Color.fromRGBO(217, 217, 217, 1),
-                filled: true,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(40.0),
-                  borderSide: BorderSide.none,
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-            TextField(
-              style: GoogleFonts.montserrat(
-                  color: const Color.fromRGBO(0, 0, 0, 0.4),
-                  fontSize: 13.0,
-                  fontWeight: FontWeight.w600),
-              cursorColor: const Color.fromRGBO(102, 57, 115, 1),
-              decoration: InputDecoration(
-                prefixIcon:
-                    const Icon(Icons.lock, color: Color.fromRGBO(0, 0, 0, 400)),
-                hintText: "Digite sua senha",
-                hintStyle: const TextStyle(color: Color.fromRGBO(0, 0, 0, 400)),
-                fillColor: const Color.fromRGBO(217, 217, 217, 1),
-                filled: true,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(40.0),
-                  borderSide: BorderSide.none,
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 8,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                caixaDeMarcacao(),
-                const SizedBox(
-                  width: 8,
-                ),
-                Text(
-                  "Lembre-se de mim",
-                  style: GoogleFonts.montserrat(
-                    color: const Color.fromRGBO(217, 217, 217, 1),
-                    fontSize: 10,
-                    fontWeight: FontWeight.w600,
+    return Form(
+      key: keyForms,
+      child: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(40.0),
+          child: SingleChildScrollView(
+              child: Column(
+            children: [
+              TextFormField(
+                keyboardType: TextInputType.emailAddress,
+                style: GoogleFonts.montserrat(
+                    color: const Color.fromRGBO(0, 0, 0, 0.4),
+                    fontSize: 13.0,
+                    fontWeight: FontWeight.w600),
+                cursorColor: const Color.fromRGBO(102, 57, 115, 1),
+                decoration: InputDecoration(
+                  prefixIcon: const Icon(Icons.email,
+                      color: Color.fromRGBO(0, 0, 0, 400)),
+                  hintText: "Digite seu email",
+                  hintStyle:
+                      const TextStyle(color: Color.fromRGBO(0, 0, 0, 400)),
+                  fillColor: const Color.fromRGBO(217, 217, 217, 1),
+                  filled: true,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(40.0),
+                    borderSide: BorderSide.none,
                   ),
                 ),
-                const SizedBox(
-                  width: 16,
+                validator: (String? email) {
+                  if (email == null || email.isEmpty) {
+                    return "O email não pode ser vazio";
+                  }
+                  if (email.length < 6) {
+                    return "O email está muito curto";
+                  }
+                  if (!email.contains("@")) {
+                    return "O email deve conter '@'";
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              TextField(
+                autofocus: true,
+                obscureText: mostrarSenha == false ? true : false,
+                style: GoogleFonts.montserrat(
+                    color: const Color.fromRGBO(0, 0, 0, 0.4),
+                    fontSize: 13.0,
+                    fontWeight: FontWeight.w600),
+                cursorColor: const Color.fromRGBO(102, 57, 115, 1),
+                decoration: InputDecoration(
+                  suffixIcon: GestureDetector(
+                    child: Transform.scale(
+                      scale: 0.8,
+                      child: Icon(mostrarSenha == false
+                          ? Icons.visibility_off
+                          : Icons.visibility),
+                    ),
+                    onTap: () {
+                      setState(() {
+                        mostrarSenha = !mostrarSenha;
+                      });
+                    },
+                  ),
+                  prefixIcon: const Icon(Icons.lock,
+                      color: Color.fromRGBO(0, 0, 0, 400)),
+                  hintText: "Digite sua senha",
+                  hintStyle:
+                      const TextStyle(color: Color.fromRGBO(0, 0, 0, 400)),
+                  fillColor: const Color.fromRGBO(217, 217, 217, 1),
+                  filled: true,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(40.0),
+                    borderSide: BorderSide.none,
+                  ),
                 ),
-                GestureDetector(
-                  child: Text(
-                    "Esqueceu a senha?",
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  caixaDeMarcacao(),
+                  const SizedBox(
+                    width: 8,
+                  ),
+                  Text(
+                    "Lembre-se de mim",
                     style: GoogleFonts.montserrat(
-                      color: const Color.fromRGBO(189, 0, 243, 1),
+                      color: const Color.fromRGBO(217, 217, 217, 1),
                       fontSize: 10,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  onTap: () {
-                    Navigator.of(context).pushNamed("/cadastro");
-                  },
+                  const SizedBox(
+                    width: 16,
+                  ),
+                  GestureDetector(
+                    child: Text(
+                      "Esqueceu a senha?",
+                      style: GoogleFonts.montserrat(
+                        color: const Color.fromRGBO(189, 0, 243, 1),
+                        fontSize: 10,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    onTap: () {
+                      Navigator.of(context).pushNamed("/cadastro");
+                    },
+                  ),
+                ],
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromRGBO(189, 0, 243, 1),
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25.0),
+                  ),
                 ),
-              ],
-            )
-          ],
-        )),
+                onPressed: () {
+                  if (keyForms.currentState!.validate()) {
+                    Navigator.of(context).pushNamed("/home");
+                  }
+                },
+                child: Text(
+                  "Entrar",
+                  style: GoogleFonts.montserrat(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              )
+            ],
+          )),
+        ),
       ),
     );
   }
