@@ -159,161 +159,157 @@ class LoginState extends State<Login> {
   final keyForms = GlobalKey<FormState>();
   Widget formulario() {
     return Form(
-        key: keyForms,
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(40.0),
-            child: Column(children: [
-              Container(
-                constraints: const BoxConstraints(
-                  maxWidth: 285,
-                  minHeight: 60,
+      key: keyForms,
+      child: Center(
+        child: Column(children: [
+          Container(
+            constraints: const BoxConstraints(
+              maxWidth: 285,
+              minHeight: 60,
+            ),
+            child: TextFormField(
+              keyboardType: TextInputType.emailAddress,
+              style: GoogleFonts.montserrat(
+                  color: const Color.fromRGBO(0, 0, 0, 0.4),
+                  fontSize: 13.0,
+                  fontWeight: FontWeight.w600),
+              cursorColor: const Color.fromRGBO(102, 57, 115, 1),
+              decoration: InputDecoration(
+                prefixIcon: const Icon(Icons.email,
+                    color: Color.fromRGBO(0, 0, 0, 400)),
+                hintText: "Digite seu email",
+                hintStyle: const TextStyle(color: Color.fromRGBO(0, 0, 0, 400)),
+                fillColor: const Color.fromRGBO(217, 217, 217, 1),
+                filled: true,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(40.0),
+                  borderSide: BorderSide.none,
                 ),
-                child: TextFormField(
-                  keyboardType: TextInputType.emailAddress,
-                  style: GoogleFonts.montserrat(
-                      color: const Color.fromRGBO(0, 0, 0, 0.4),
-                      fontSize: 13.0,
-                      fontWeight: FontWeight.w600),
-                  cursorColor: const Color.fromRGBO(102, 57, 115, 1),
-                  decoration: InputDecoration(
-                    prefixIcon: const Icon(Icons.email,
-                        color: Color.fromRGBO(0, 0, 0, 400)),
-                    hintText: "Digite seu email",
-                    hintStyle:
-                        const TextStyle(color: Color.fromRGBO(0, 0, 0, 400)),
-                    fillColor: const Color.fromRGBO(217, 217, 217, 1),
-                    filled: true,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(40.0),
-                      borderSide: BorderSide.none,
-                    ),
+              ),
+              validator: (String? email) {
+                if (email == null || email.isEmpty) {
+                  return "O email não pode ser vazio";
+                }
+                if (email.length < 6) {
+                  return "O email está muito curto";
+                }
+                if (!email.contains("@")) {
+                  return "O email deve conter '@'";
+                }
+                return null;
+              },
+            ),
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          SizedBox(
+            width: 285,
+            height: 60,
+            child: TextField(
+              autofocus: true,
+              obscureText: mostrarSenha == false ? true : false,
+              style: GoogleFonts.montserrat(
+                  color: const Color.fromRGBO(0, 0, 0, 0.4),
+                  fontSize: 13.0,
+                  fontWeight: FontWeight.w600),
+              cursorColor: const Color.fromRGBO(102, 57, 115, 1),
+              decoration: InputDecoration(
+                suffixIcon: GestureDetector(
+                  child: Transform.scale(
+                    scale: 0.8,
+                    child: Icon(mostrarSenha == false
+                        ? Icons.visibility_off
+                        : Icons.visibility),
                   ),
-                  validator: (String? email) {
-                    if (email == null || email.isEmpty) {
-                      return "O email não pode ser vazio";
-                    }
-                    if (email.length < 6) {
-                      return "O email está muito curto";
-                    }
-                    if (!email.contains("@")) {
-                      return "O email deve conter '@'";
-                    }
-                    return null;
+                  onTap: () {
+                    setState(() {
+                      mostrarSenha = !mostrarSenha;
+                    });
                   },
+                ),
+                prefixIcon:
+                    const Icon(Icons.lock, color: Color.fromRGBO(0, 0, 0, 400)),
+                hintText: "Digite sua senha",
+                hintStyle: const TextStyle(color: Color.fromRGBO(0, 0, 0, 400)),
+                fillColor: const Color.fromRGBO(217, 217, 217, 1),
+                filled: true,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(40.0),
+                  borderSide: BorderSide.none,
+                ),
+              ),
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              caixaDeMarcacao(),
+              const SizedBox(
+                width: 8,
+              ),
+              Text(
+                "Lembre-se de mim",
+                style: GoogleFonts.montserrat(
+                  color: const Color.fromRGBO(217, 217, 217, 1),
+                  fontSize: 10,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
               const SizedBox(
-                height: 16,
+                width: 16,
               ),
-              SizedBox(
-                width: 285,
-                height: 60,
-                child: TextField(
-                  autofocus: true,
-                  obscureText: mostrarSenha == false ? true : false,
+              GestureDetector(
+                child: Text(
+                  "Esqueceu a senha?",
                   style: GoogleFonts.montserrat(
-                      color: const Color.fromRGBO(0, 0, 0, 0.4),
-                      fontSize: 13.0,
-                      fontWeight: FontWeight.w600),
-                  cursorColor: const Color.fromRGBO(102, 57, 115, 1),
-                  decoration: InputDecoration(
-                    suffixIcon: GestureDetector(
-                      child: Transform.scale(
-                        scale: 0.8,
-                        child: Icon(mostrarSenha == false
-                            ? Icons.visibility_off
-                            : Icons.visibility),
-                      ),
-                      onTap: () {
-                        setState(() {
-                          mostrarSenha = !mostrarSenha;
-                        });
-                      },
-                    ),
-                    prefixIcon: const Icon(Icons.lock,
-                        color: Color.fromRGBO(0, 0, 0, 400)),
-                    hintText: "Digite sua senha",
-                    hintStyle:
-                        const TextStyle(color: Color.fromRGBO(0, 0, 0, 400)),
-                    fillColor: const Color.fromRGBO(217, 217, 217, 1),
-                    filled: true,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(40.0),
-                      borderSide: BorderSide.none,
-                    ),
+                    color: const Color.fromRGBO(189, 0, 243, 1),
+                    fontSize: 10,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
+                onTap: () {
+                  Navigator.of(context).pushNamed("/cadastro");
+                },
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  caixaDeMarcacao(),
-                  const SizedBox(
-                    width: 8,
-                  ),
-                  Text(
-                    "Lembre-se de mim",
-                    style: GoogleFonts.montserrat(
-                      color: const Color.fromRGBO(217, 217, 217, 1),
-                      fontSize: 10,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 16,
-                  ),
-                  GestureDetector(
-                    child: Text(
-                      "Esqueceu a senha?",
-                      style: GoogleFonts.montserrat(
-                        color: const Color.fromRGBO(189, 0, 243, 1),
-                        fontSize: 10,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
-                  ),
-                ],
-              ),
-              const SizedBox(height: 24),
-              iconesLogin(),
-              const SizedBox(height: 12),
-              botaoLogin(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Não tem uma conta?",
-                    style: GoogleFonts.montserrat(
-                      color: const Color.fromRGBO(217, 217, 217, 1),
-                      fontSize: 10,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 8,
-                  ),
-                  GestureDetector(
-                    child: Text(
-                      "Cadastre-se?",
-                      style: GoogleFonts.montserrat(
-                        color: const Color.fromRGBO(189, 0, 243, 1),
-                        fontSize: 10,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
-                  ),
-                ],
-              )
-            ]),
+            ],
           ),
-        ));
+          const SizedBox(height: 24),
+          iconesLogin(),
+          const SizedBox(height: 12),
+          botaoLogin(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Não tem uma conta?",
+                style: GoogleFonts.montserrat(
+                  color: const Color.fromRGBO(217, 217, 217, 1),
+                  fontSize: 10,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              const SizedBox(
+                width: 8,
+              ),
+              GestureDetector(
+                child: Text(
+                  "Cadastre-se?",
+                  style: GoogleFonts.montserrat(
+                    color: const Color.fromRGBO(189, 0, 243, 1),
+                    fontSize: 10,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                onTap: () {
+                  Navigator.of(context).pushNamed("/cadastro");
+                },
+              ),
+            ],
+          )
+        ]),
+      ),
+    );
   }
 
   Widget mimusicTitulo() {
@@ -359,6 +355,7 @@ class LoginState extends State<Login> {
               child: Column(
                 children: [
                   mimusicTitulo(),
+                  
                   formulario(),
                 ],
               ),
