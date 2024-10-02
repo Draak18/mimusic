@@ -313,7 +313,7 @@ class CadastroState extends State<Cadastro> {
             children: [
               Text(
                 // Já tem uma Conta
-                "Já tem uma conta?",
+                "Já tem uma conta??",
                 style: GoogleFonts.montserrat(
                   color: const Color.fromRGBO(217, 217, 217, 1),
                   fontSize: 10,
