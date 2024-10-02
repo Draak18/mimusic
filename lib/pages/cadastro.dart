@@ -334,7 +334,7 @@ class CadastroState extends State<Cadastro> {
                   ),
                 ),
                 onTap: () {
-                  Navigator.of(context).pushNamed("/");
+                  Navigator.of(context).pushNamed("/login");
                 },
               ),
             ],
@@ -356,9 +356,9 @@ class CadastroState extends State<Cadastro> {
             border: Border.all(
                 width: 2.0, color: const Color.fromARGB(13, 198, 198, 198)),
           ),
-          child: Align(
-            alignment: Alignment.center,
-            child: SingleChildScrollView(
+          child: SingleChildScrollView(
+            child: Align(
+              alignment: Alignment.center,
               child: Column(
                 children: [
                   mimusicTitulo(),

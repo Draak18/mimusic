@@ -346,14 +346,17 @@ class LoginState extends State<Login> {
             border: Border.all(
                 width: 2.0, color: const Color.fromARGB(13, 198, 198, 198)),
           ),
-          child: Align(
-            alignment: Alignment.center,
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  mimusicTitulo(),
-                  formulario(),
-                ],
+          child: SingleChildScrollView(
+            child: Align(
+              alignment: Alignment.center,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    mimusicTitulo(),
+                    Center(child: formulario()),
+                  ],
+                ),
               ),
             ),
           )),
