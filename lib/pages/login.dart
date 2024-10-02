@@ -11,39 +11,27 @@ class Login extends StatefulWidget {
 }
 
 class LoginState extends State<Login> {
-  Widget fundo() {
-    return Opacity(
-      opacity: 0.2,
-      child: Image.asset(
-        'assets/images/wallpaper.png',
-        fit: BoxFit.cover,
-        height: double.infinity,
-        width: double.infinity,
-      ),
-    );
-  }
-
-  Widget botaoLogin() {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        minimumSize: const Size(225, 40),
-        backgroundColor: const Color.fromRGBO(189, 0, 243, 1),
-        foregroundColor: Colors.white,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(25.0),
-        ),
-      ),
-      onPressed: () {
-        if (keyForms.currentState!.validate()) {
-          Navigator.of(context).pushNamed("/home");
-        }
-      },
-      child: Text(
-        "Faça login",
-        style: GoogleFonts.montserrat(
-          fontSize: 16,
-          fontWeight: FontWeight.w600,
-        ),
+  Widget mimusicTitulo() {
+    return RichText(
+      text: TextSpan(
+        children: [
+          TextSpan(
+            text: "MI",
+            style: GoogleFonts.montserrat(
+              color: Colors.white,
+              fontSize: 24,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+          TextSpan(
+            text: "MUSIC",
+            style: GoogleFonts.montserrat(
+              color: const Color.fromRGBO(189, 0, 243, 1),
+              fontSize: 24,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -96,6 +84,7 @@ class LoginState extends State<Login> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         GestureDetector(
+          // Icone Facebook
           onTap: () {
             Navigator.of(context).pushNamed("/home");
           },
@@ -115,6 +104,7 @@ class LoginState extends State<Login> {
         ),
         const SizedBox(width: 24),
         GestureDetector(
+          // Icone Google
           onTap: () {
             Navigator.of(context).pushNamed("/home");
           },
@@ -134,6 +124,7 @@ class LoginState extends State<Login> {
         ),
         const SizedBox(width: 24),
         GestureDetector(
+          // Icone Icloud
           onTap: () {
             Navigator.of(context).pushNamed("/home");
           },
@@ -155,6 +146,31 @@ class LoginState extends State<Login> {
     );
   }
 
+  Widget botaoLogin() {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        minimumSize: const Size(225, 40),
+        backgroundColor: const Color.fromRGBO(189, 0, 243, 1),
+        foregroundColor: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(25.0),
+        ),
+      ),
+      onPressed: () {
+        if (keyForms.currentState!.validate()) {
+          Navigator.of(context).pushNamed("/home");
+        }
+      },
+      child: Text(
+        "Faça login",
+        style: GoogleFonts.montserrat(
+          fontSize: 16,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+    );
+  }
+
   bool mostrarSenha = false;
   final keyForms = GlobalKey<FormState>();
   Widget formulario() {
@@ -168,6 +184,7 @@ class LoginState extends State<Login> {
               minHeight: 60,
             ),
             child: TextFormField(
+              // Email
               keyboardType: TextInputType.emailAddress,
               style: GoogleFonts.montserrat(
                   color: const Color.fromRGBO(0, 0, 0, 0.4),
@@ -204,6 +221,7 @@ class LoginState extends State<Login> {
             height: 16,
           ),
           SizedBox(
+            // Senha
             width: 285,
             height: 60,
             child: TextField(
@@ -249,6 +267,7 @@ class LoginState extends State<Login> {
                 width: 8,
               ),
               Text(
+                // Lembre-se
                 "Lembre-se de mim",
                 style: GoogleFonts.montserrat(
                   color: const Color.fromRGBO(217, 217, 217, 1),
@@ -260,6 +279,7 @@ class LoginState extends State<Login> {
                 width: 16,
               ),
               GestureDetector(
+                // Esqueceu a Senha
                 child: Text(
                   "Esqueceu a senha?",
                   style: GoogleFonts.montserrat(
@@ -274,7 +294,7 @@ class LoginState extends State<Login> {
               ),
             ],
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: 20),
           iconesLogin(),
           const SizedBox(height: 12),
           botaoLogin(),
@@ -282,6 +302,7 @@ class LoginState extends State<Login> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
+                // Não tem uma Conta
                 "Não tem uma conta?",
                 style: GoogleFonts.montserrat(
                   color: const Color.fromRGBO(217, 217, 217, 1),
@@ -293,8 +314,9 @@ class LoginState extends State<Login> {
                 width: 8,
               ),
               GestureDetector(
+                // Cadastre-se
                 child: Text(
-                  "Cadastre-se?",
+                  "Cadastre-se",
                   style: GoogleFonts.montserrat(
                     color: const Color.fromRGBO(189, 0, 243, 1),
                     fontSize: 10,
@@ -308,31 +330,6 @@ class LoginState extends State<Login> {
             ],
           )
         ]),
-      ),
-    );
-  }
-
-  Widget mimusicTitulo() {
-    return RichText(
-      text: TextSpan(
-        children: [
-          TextSpan(
-            text: "MI",
-            style: GoogleFonts.montserrat(
-              color: Colors.white,
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          TextSpan(
-            text: "MUSIC",
-            style: GoogleFonts.montserrat(
-              color: const Color.fromRGBO(189, 0, 243, 1),
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ],
       ),
     );
   }
@@ -355,12 +352,23 @@ class LoginState extends State<Login> {
               child: Column(
                 children: [
                   mimusicTitulo(),
-                  
                   formulario(),
                 ],
               ),
             ),
           )),
+    );
+  }
+
+  Widget fundo() {
+    return Opacity(
+      opacity: 0.2,
+      child: Image.asset(
+        'assets/images/wallpaper.png',
+        fit: BoxFit.cover,
+        height: double.infinity,
+        width: double.infinity,
+      ),
     );
   }
 
