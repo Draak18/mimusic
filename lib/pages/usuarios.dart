@@ -35,7 +35,7 @@ class UsuariosState extends State<Usuarios> {
             height: 1,
           ),
         ),
-        const SizedBox(height: 90),
+        const SizedBox(height: 56),
         Row(
           mainAxisSize: MainAxisSize.min, // Adicione essa linha
           children: [
@@ -44,32 +44,99 @@ class UsuariosState extends State<Usuarios> {
               child: Image.asset(
                 "assets/images/gato1.jpg",
                 fit: BoxFit.cover,
+                height: 120,
+                width: 120,
+                text
               ),
+
+  
+
             ),
+            SizedBox(width: 48 ),
             Flexible(
               // Use Flexible em vez de definir uma largura fixa
               child: Image.asset(
-                "assets/images/gato2.webp",
+                "assets/images/gato2.jpg",
                 fit: BoxFit.cover,
+                height: 120,
+                width: 120,
+                
+              ),
+              
+            ),
+          ],
+        ),
+        SizedBox(height: 40),
+        Row(
+          mainAxisSize: MainAxisSize.min, // Adicione essa linha
+          children: [
+            Flexible(
+              // Use Flexible em vez de definir uma largura fixa
+              child: Image.asset(
+                "assets/images/gato3.jpg",
+                fit: BoxFit.cover,
+                height: 120,
+                width: 120,
+              ),
+            ),
+            SizedBox(width: 48),
+            Flexible(
+              // Use Flexible em vez de definir uma largura fixa
+              child: Image.asset(
+                "assets/images/gato4.jpg",
+                fit: BoxFit.cover,
+                height: 120,
+                width: 120,
               ),
             ),
           ],
         ),
+        SizedBox(height: 40),
         Row(
           mainAxisSize: MainAxisSize.min, // Adicione essa linha
           children: [
             Flexible(
               // Use Flexible em vez de definir uma largura fixa
               child: Image.asset(
-                "assets/images/gato3.webp",
+                "assets/images/gato5.jpg",
                 fit: BoxFit.cover,
+                height: 120,
+                width: 120,
               ),
             ),
+            SizedBox(width: 48),
             Flexible(
               // Use Flexible em vez de definir uma largura fixa
               child: Image.asset(
-                "assets/images/gato1.jpg",
+                "assets/images/gato6.jpg",
                 fit: BoxFit.cover,
+                height: 120,
+                width: 120,
+              ),
+            ),
+          ],
+        ),
+        SizedBox(height: 40),
+        Row(
+          mainAxisSize: MainAxisSize.min, // Adicione essa linha
+          children: [
+            Flexible(
+              // Use Flexible em vez de definir uma largura fixa
+              child: Image.asset(
+                "assets/images/gato7.jpg",
+                fit: BoxFit.cover,
+                height: 120,
+                width: 120,
+              ),
+            ),
+            SizedBox(width: 48),
+            Flexible(
+              // Use Flexible em vez de definir uma largura fixa
+              child: Image.asset(
+                "assets/images/gato8.jpg",
+                fit: BoxFit.cover,
+                height: 120,
+                width: 120,
               ),
             ),
           ],
