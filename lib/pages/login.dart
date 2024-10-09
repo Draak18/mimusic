@@ -337,47 +337,53 @@ class LoginState extends State<Login> {
   Widget caixaCinza() {
     return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: Container(
-        width: double.infinity,
-        height: double.infinity,
-        decoration: BoxDecoration(
-          color: const Color.fromRGBO(17, 17, 17, 1),
-          borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-          border: Border.all(
-              width: 2.0, color: const Color.fromARGB(13, 198, 198, 198)),
-        ),
-        child: Column(
-          children: [
-            const SizedBox(height: 16),
-            mimusicTitulo(),
-            const SizedBox(height: 104),
-            Expanded(
+      child: Center(
+        child: SingleChildScrollView(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(
+              minHeight: 794,
+            ),
+            child: Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: const Color.fromRGBO(17, 17, 17, 1),
+                borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+                border: Border.all(
+                    width: 2.0, color: const Color.fromARGB(13, 198, 198, 198)),
+              ),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Stack(
-                    clipBehavior: Clip.none,
+                  const SizedBox(height: 16),
+                  mimusicTitulo(),
+                  const SizedBox(height: 300),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      formulario(),
-                      Positioned(
-                        top: -225,
-                        left: 0,
-                        right: 0,
-                        child: SizedBox(
-                          height: 250,
-                          width: 400,
-                          child: Image.asset(
-                            "assets/images/gatoLogo.png",
+                      Stack(
+                        clipBehavior: Clip.none,
+                        children: [
+                          formulario(),
+                          Positioned(
+                            top: -225,
+                            left: 0,
+                            right: 0,
+                            child: SizedBox(
+                              height: 250,
+                              width: 400,
+                              child: Image.asset(
+                                "assets/images/gatoLogo.png",
+                              ),
+                            ),
                           ),
-                        ),
+                        ],
                       ),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),
-          ],
+          ),
         ),
       ),
     );
