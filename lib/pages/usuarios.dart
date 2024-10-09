@@ -26,6 +26,7 @@ class UsuariosState extends State<Usuarios> {
   Widget perfis() {
     return Column(
       children: [
+        const SizedBox(height: 56),
         Text(
           "USUÁRIOS",
           style: GoogleFonts.montserrat(
@@ -35,108 +36,270 @@ class UsuariosState extends State<Usuarios> {
             height: 1,
           ),
         ),
-        const SizedBox(height: 56),
+        const SizedBox(height: 16),
         Row(
           mainAxisSize: MainAxisSize.min, // Adicione essa linha
           children: [
             Flexible(
               // Use Flexible em vez de definir uma largura fixa
-              child: Image.asset(
-                "assets/images/gato1.jpg",
-                fit: BoxFit.cover,
-                height: 120,
-                width: 120,
-                text
-              ),
-
-  
-
-            ),
-            SizedBox(width: 48 ),
-            Flexible(
-              // Use Flexible em vez de definir uma largura fixa
-              child: Image.asset(
-                "assets/images/gato2.jpg",
-                fit: BoxFit.cover,
-                height: 120,
-                width: 120,
-                
-              ),
-              
-            ),
-          ],
-        ),
-        SizedBox(height: 40),
-        Row(
-          mainAxisSize: MainAxisSize.min, // Adicione essa linha
-          children: [
-            Flexible(
-              // Use Flexible em vez de definir uma largura fixa
-              child: Image.asset(
-                "assets/images/gato3.jpg",
-                fit: BoxFit.cover,
-                height: 120,
-                width: 120,
+              child: Column(
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      // Ação ao tocar na imagem
+                      print("Imagem gato1 tocada!");
+                    },
+                    child : ClipRRect(
+                      borderRadius: BorderRadius.circular(16.0),
+                      child: Image.asset(
+                        "assets/images/gato1.jpg",
+                        fit: BoxFit.cover,
+                        height: 120,
+                        width: 120,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 8),
+                  Text("USUÁRIOS",
+                      style: GoogleFonts.montserrat(
+                        fontSize: 14,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        height: 1,
+                      )),
+                ],
               ),
             ),
             SizedBox(width: 48),
             Flexible(
               // Use Flexible em vez de definir uma largura fixa
-              child: Image.asset(
-                "assets/images/gato4.jpg",
-                fit: BoxFit.cover,
-                height: 120,
-                width: 120,
+              child: Column(
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      // Ação ao tocar na imagem
+                      print("Imagem gato2 tocada!");
+                    },
+                    child : ClipRRect(
+                      borderRadius: BorderRadius.circular(16.0),
+                      child: Image.asset(
+                        "assets/images/gato2.jpg",
+                        fit: BoxFit.cover,
+                        height: 120,
+                        width: 120,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 8),
+                  Text("USUÁRIOS",
+                      style: GoogleFonts.montserrat(
+                        fontSize: 14,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        height: 1,
+                      )),
+                ],
               ),
             ),
           ],
         ),
-        SizedBox(height: 40),
+        SizedBox(height: 32),
         Row(
           mainAxisSize: MainAxisSize.min, // Adicione essa linha
           children: [
             Flexible(
               // Use Flexible em vez de definir uma largura fixa
-              child: Image.asset(
-                "assets/images/gato5.jpg",
-                fit: BoxFit.cover,
-                height: 120,
-                width: 120,
+              child: Column(
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      // Ação ao tocar na imagem
+                      print("Imagem gato3 tocada!");
+                    },
+                    child : ClipRRect(
+                      borderRadius: BorderRadius.circular(16.0),
+                      child: Image.asset(
+                        "assets/images/gato3.jpg",
+                        fit: BoxFit.cover,
+                        height: 120,
+                        width: 120,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 8),
+                  Text("USUÁRIOS",
+                      style: GoogleFonts.montserrat(
+                        fontSize: 14,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        height: 1,
+                      )),
+                ],
               ),
             ),
             SizedBox(width: 48),
             Flexible(
               // Use Flexible em vez de definir uma largura fixa
-              child: Image.asset(
-                "assets/images/gato6.jpg",
-                fit: BoxFit.cover,
-                height: 120,
-                width: 120,
+              child: Column(
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      // Ação ao tocar na imagem
+                      print("Imagem gato4 tocada!");
+                    },
+                    child : ClipRRect(
+                      borderRadius: BorderRadius.circular(16.0),
+                      child: Image.asset(
+                        "assets/images/gato4.jpg",
+                        fit: BoxFit.cover,
+                        height: 120,
+                        width: 120,
+                      ),
+                      ),
+                    ),
+                  SizedBox(height: 8),
+                  Text("USUÁRIOS",
+                      style: GoogleFonts.montserrat(
+                        fontSize: 14,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        height: 1,
+                      )),
+                ],
               ),
             ),
           ],
         ),
-        SizedBox(height: 40),
+        SizedBox(height: 32),
         Row(
           mainAxisSize: MainAxisSize.min, // Adicione essa linha
           children: [
             Flexible(
               // Use Flexible em vez de definir uma largura fixa
-              child: Image.asset(
-                "assets/images/gato7.jpg",
-                fit: BoxFit.cover,
-                height: 120,
-                width: 120,
+              child: Column(
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      // Ação ao tocar na imagem
+                      print("Imagem gato5 tocada!");
+                    },
+                    child : ClipRRect(
+                      borderRadius: BorderRadius.circular(16.0),
+                      child: Image.asset(
+                        "assets/images/gato5.jpg",
+                        fit: BoxFit.cover,
+                        height: 120,
+                        width: 120,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 8),
+                  Text("USUÁRIOS",
+                      style: GoogleFonts.montserrat(
+                        fontSize: 14,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        height: 1,
+                      )),
+                ],
               ),
             ),
             SizedBox(width: 48),
             Flexible(
               // Use Flexible em vez de definir uma largura fixa
-              child: Image.asset(
-                "assets/images/gato8.jpg",
-                fit: BoxFit.cover,
-                height: 120,
-                width: 120,
+              child: Column(
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      // Ação ao tocar na imagem
+                      print("Imagem gato6 tocada!");
+                    },
+                    child : ClipRRect(
+                      borderRadius: BorderRadius.circular(16.0),
+                      child: Image.asset(
+                        "assets/images/gato6.jpg",
+                        fit: BoxFit.cover,
+                        height: 120,
+                        width: 120,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 8),
+                  Text("USUÁRIOS",
+                      style: GoogleFonts.montserrat(
+                        fontSize: 14,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        height: 1,
+                      )),
+                ],
+              ),
+            ),
+          ],
+        ),
+        SizedBox(height: 32),
+        Row(
+          mainAxisSize: MainAxisSize.min, // Adicione essa linha
+          children: [
+            Flexible(
+              // Use Flexible em vez de definir uma largura fixa
+              child: Column(
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      // Ação ao tocar na imagem
+                      print("Imagem gato7 tocada!");
+                    },
+                    child : ClipRRect(
+                      borderRadius: BorderRadius.circular(16.0),
+                      child: Image.asset(
+                        "assets/images/gato7.jpg",
+                        fit: BoxFit.cover,
+                        height: 120,
+                        width: 120,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 8),
+                  Text("USUÁRIOS",
+                      style: GoogleFonts.montserrat(
+                        fontSize: 14,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        height: 1,
+                      )),
+                ],
+              ),
+            ),
+            SizedBox(width: 48),
+            Flexible(
+              // Use Flexible em vez de definir uma largura fixa
+              child: Column(
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      // Ação ao tocar na imagem
+                      print("Imagem gato8 tocada!");
+                    },
+                    child : ClipRRect(
+                      borderRadius: BorderRadius.circular(16.0),
+                      child: Image.asset(
+                        "assets/images/gato8.jpg",
+                        fit: BoxFit.cover,
+                        height: 120,
+                        width: 120,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 8),
+                  Text("USUÁRIOS",
+                      style: GoogleFonts.montserrat(
+                        fontSize: 14,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        height: 1,
+                      )),
+                ],
               ),
             ),
           ],
