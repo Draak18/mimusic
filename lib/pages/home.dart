@@ -44,8 +44,8 @@ class HomeState extends State<Home> {
         elevation: 0,
         automaticallyImplyLeading: false,
       ),
-      body: SingleChildScrollView(
-        child: const Column(
+      body: const SingleChildScrollView(
+        child: Column(
             // children: [Image.asset("assets/images/perfilImage.png")],
             ),
       ),
