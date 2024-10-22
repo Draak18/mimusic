@@ -93,7 +93,7 @@ class CadastroState extends State<Cadastro> {
                 shape: BoxShape.circle,
               ),
               child: Image.asset(
-                'assets/images/icone_icloud.jpg',
+                'assets/images/gatoLogo.jpg',
                 fit: BoxFit.cover,
               ),
             ),
@@ -334,7 +334,7 @@ class CadastroState extends State<Cadastro> {
                   ),
                 ),
                 onTap: () {
-                  Navigator.of(context).pushNamed("/");
+                  Navigator.of(context).pushNamed("/login");
                 },
               ),
             ],
