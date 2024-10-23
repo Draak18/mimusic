@@ -18,7 +18,7 @@ class HomeState extends State<Home> {
             style: GoogleFonts.montserrat(
               color: Colors.white,
               fontSize: 24,
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w800,
             ),
           ),
           TextSpan(
@@ -26,7 +26,7 @@ class HomeState extends State<Home> {
             style: GoogleFonts.montserrat(
               color: const Color.fromRGBO(189, 0, 243, 1),
               fontSize: 24,
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w800,
             ),
           ),
         ],

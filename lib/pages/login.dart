@@ -86,7 +86,7 @@ class LoginState extends State<Login> {
         GestureDetector(
           // Icone Facebook
           onTap: () {
-            Navigator.of(context).pushNamed("/home");
+            Navigator.of(context).pushNamed("/usuarios");
           },
           child: ClipOval(
             child: Container(
@@ -106,7 +106,7 @@ class LoginState extends State<Login> {
         GestureDetector(
           // Icone Google
           onTap: () {
-            Navigator.of(context).pushNamed("/home");
+            Navigator.of(context).pushNamed("/usuarios");
           },
           child: ClipOval(
             child: Container(
@@ -126,7 +126,7 @@ class LoginState extends State<Login> {
         GestureDetector(
           // Icone Icloud
           onTap: () {
-            Navigator.of(context).pushNamed("/home");
+            Navigator.of(context).pushNamed("/usuarios");
           },
           child: ClipOval(
             child: Container(
@@ -158,7 +158,7 @@ class LoginState extends State<Login> {
       ),
       onPressed: () {
         if (keyForms.currentState!.validate()) {
-          Navigator.of(context).pushNamed("/home");
+          Navigator.of(context).pushNamed("/usuarios");
         }
       },
       child: Text(

@@ -23,10 +23,37 @@ class UsuariosState extends State<Usuarios> {
     );
   }
 
+  Widget mimusicTitulo() {
+    return RichText(
+      text: TextSpan(
+        children: [
+          TextSpan(
+            text: "MI",
+            style: GoogleFonts.montserrat(
+              color: Colors.white,
+              fontSize: 24,
+              fontWeight: FontWeight.w800,
+            ),
+          ),
+          TextSpan(
+            text: "MUSIC",
+            style: GoogleFonts.montserrat(
+              color: const Color.fromRGBO(189, 0, 243, 1),
+              fontSize: 24,
+              fontWeight: FontWeight.w800,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget perfis() {
     return Column(
       children: [
-        const SizedBox(height: 56),
+        const SizedBox(height: 16),
+        mimusicTitulo(),
+        const SizedBox(height: 24),
         Text(
           "USUÁRIOS",
           style: GoogleFonts.montserrat(
@@ -47,9 +74,9 @@ class UsuariosState extends State<Usuarios> {
                   GestureDetector(
                     onTap: () {
                       // Ação ao tocar na imagem
-                      print("Imagem gato1 tocada!");
+                      Navigator.of(context).pushNamed("/home");
                     },
-                    child : ClipRRect(
+                    child: ClipRRect(
                       borderRadius: BorderRadius.circular(16.0),
                       child: Image.asset(
                         "assets/images/gato1.jpg",
@@ -78,9 +105,9 @@ class UsuariosState extends State<Usuarios> {
                   GestureDetector(
                     onTap: () {
                       // Ação ao tocar na imagem
-                      print("Imagem gato2 tocada!");
+                      Navigator.of(context).pushNamed("/home");
                     },
-                    child : ClipRRect(
+                    child: ClipRRect(
                       borderRadius: BorderRadius.circular(16.0),
                       child: Image.asset(
                         "assets/images/gato2.jpg",
@@ -114,9 +141,9 @@ class UsuariosState extends State<Usuarios> {
                   GestureDetector(
                     onTap: () {
                       // Ação ao tocar na imagem
-                      print("Imagem gato3 tocada!");
+                      Navigator.of(context).pushNamed("/home");
                     },
-                    child : ClipRRect(
+                    child: ClipRRect(
                       borderRadius: BorderRadius.circular(16.0),
                       child: Image.asset(
                         "assets/images/gato3.jpg",
@@ -145,9 +172,9 @@ class UsuariosState extends State<Usuarios> {
                   GestureDetector(
                     onTap: () {
                       // Ação ao tocar na imagem
-                      print("Imagem gato4 tocada!");
+                      Navigator.of(context).pushNamed("/home");
                     },
-                    child : ClipRRect(
+                    child: ClipRRect(
                       borderRadius: BorderRadius.circular(16.0),
                       child: Image.asset(
                         "assets/images/gato4.jpg",
@@ -155,8 +182,8 @@ class UsuariosState extends State<Usuarios> {
                         height: 120,
                         width: 120,
                       ),
-                      ),
                     ),
+                  ),
                   SizedBox(height: 8),
                   Text("USUÁRIOS",
                       style: GoogleFonts.montserrat(
@@ -181,9 +208,9 @@ class UsuariosState extends State<Usuarios> {
                   GestureDetector(
                     onTap: () {
                       // Ação ao tocar na imagem
-                      print("Imagem gato5 tocada!");
+                      Navigator.of(context).pushNamed("/home");
                     },
-                    child : ClipRRect(
+                    child: ClipRRect(
                       borderRadius: BorderRadius.circular(16.0),
                       child: Image.asset(
                         "assets/images/gato5.jpg",
@@ -212,9 +239,9 @@ class UsuariosState extends State<Usuarios> {
                   GestureDetector(
                     onTap: () {
                       // Ação ao tocar na imagem
-                      print("Imagem gato6 tocada!");
+                      Navigator.of(context).pushNamed("/home");
                     },
-                    child : ClipRRect(
+                    child: ClipRRect(
                       borderRadius: BorderRadius.circular(16.0),
                       child: Image.asset(
                         "assets/images/gato6.jpg",
@@ -248,9 +275,9 @@ class UsuariosState extends State<Usuarios> {
                   GestureDetector(
                     onTap: () {
                       // Ação ao tocar na imagem
-                      print("Imagem gato7 tocada!");
+                      Navigator.of(context).pushNamed("/home");
                     },
-                    child : ClipRRect(
+                    child: ClipRRect(
                       borderRadius: BorderRadius.circular(16.0),
                       child: Image.asset(
                         "assets/images/gato7.jpg",
@@ -279,9 +306,9 @@ class UsuariosState extends State<Usuarios> {
                   GestureDetector(
                     onTap: () {
                       // Ação ao tocar na imagem
-                      print("Imagem gato8 tocada!");
+                      Navigator.of(context).pushNamed("/home");
                     },
-                    child : ClipRRect(
+                    child: ClipRRect(
                       borderRadius: BorderRadius.circular(16.0),
                       child: Image.asset(
                         "assets/images/gato8.jpg",

@@ -43,7 +43,7 @@ class CadastroState extends State<Cadastro> {
         GestureDetector(
           // Icone Facebook
           onTap: () {
-            Navigator.of(context).pushNamed("/home");
+            Navigator.of(context).pushNamed("/usuarios");
           },
           child: ClipOval(
             child: Container(
@@ -63,7 +63,7 @@ class CadastroState extends State<Cadastro> {
         GestureDetector(
           // Icone Google
           onTap: () {
-            Navigator.of(context).pushNamed("/home");
+            Navigator.of(context).pushNamed("/usuarios");
           },
           child: ClipOval(
             child: Container(
@@ -83,7 +83,7 @@ class CadastroState extends State<Cadastro> {
         GestureDetector(
           // Icone Icloud
           onTap: () {
-            Navigator.of(context).pushNamed("/home");
+            Navigator.of(context).pushNamed("/usuarios");
           },
           child: ClipOval(
             child: Container(
@@ -93,7 +93,7 @@ class CadastroState extends State<Cadastro> {
                 shape: BoxShape.circle,
               ),
               child: Image.asset(
-                'assets/images/gatoLogo.jpg',
+                'assets/images/icone_icloud.jpg',
                 fit: BoxFit.cover,
               ),
             ),
@@ -115,7 +115,7 @@ class CadastroState extends State<Cadastro> {
       ),
       onPressed: () {
         if (keyForms.currentState!.validate()) {
-          Navigator.of(context).pushNamed("/home");
+          Navigator.of(context).pushNamed("/usuarios");
         }
       },
       child: Text(
