@@ -232,17 +232,6 @@ class BibliotecaState extends State<Biblioteca> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 16.0),
-              child: Text(
-                "Podcast's",
-                style: GoogleFonts.montserrat(
-                  color: Colors.white,
-                  fontSize: 26,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ),
             const SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.only(left: 16.0),
@@ -251,42 +240,42 @@ class BibliotecaState extends State<Biblioteca> {
                 child: Row(
                   children: [
                     Image.asset(
-                      'assets/imagenspodcast/PodPah.png',
+                      'assets/imagensmusica/livinho.png',
                       width: 115,
                       height: 115,
                       fit: BoxFit.cover,
                     ),
                     const SizedBox(width: 10),
                     Image.asset(
-                      'assets/imagenspodcast/PodDelas.png',
+                      'assets/imagensmusica/BackToBlack.png',
                       width: 115,
                       height: 115,
                       fit: BoxFit.cover,
                     ),
                     const SizedBox(width: 10),
                     Image.asset(
-                      'assets/imagenspodcast/PodCats.png',
+                      'assets/imagensmusica/ConeCrew.png',
                       width: 115,
                       height: 115,
                       fit: BoxFit.cover,
                     ),
                     const SizedBox(width: 10),
                     Image.asset(
-                      'assets/imagenspodcast/PodPah.png',
+                      'assets/imagensmusica/livinho.png',
                       width: 115,
                       height: 115,
                       fit: BoxFit.cover,
                     ),
                     const SizedBox(width: 10),
                     Image.asset(
-                      'assets/imagenspodcast/PodDelas.png',
+                      'assets/imagensmusica/BackToBlack.png',
                       width: 115,
                       height: 115,
                       fit: BoxFit.cover,
                     ),
                     const SizedBox(width: 10),
                     Image.asset(
-                      'assets/imagenspodcast/PodCats.png',
+                      'assets/imagensmusica/ConeCrew.png',
                       width: 115,
                       height: 115,
                       fit: BoxFit.cover,
@@ -363,7 +352,7 @@ class BibliotecaState extends State<Biblioteca> {
             Padding(
               padding: const EdgeInsets.only(left: 16.0),
               child: Text(
-                "Baixados",
+                "Podcast's",
                 style: GoogleFonts.montserrat(
                   color: Colors.white,
                   fontSize: 26,
@@ -379,42 +368,42 @@ class BibliotecaState extends State<Biblioteca> {
                 child: Row(
                   children: [
                     Image.asset(
-                      'assets/imagensmusica/livinho.png',
+                      'assets/imagenspodcast/PodPah.png',
                       width: 115,
                       height: 115,
                       fit: BoxFit.cover,
                     ),
                     const SizedBox(width: 10),
                     Image.asset(
-                      'assets/imagensmusica/BackToBlack.png',
+                      'assets/imagenspodcast/PodCats.png',
                       width: 115,
                       height: 115,
                       fit: BoxFit.cover,
                     ),
                     const SizedBox(width: 10),
                     Image.asset(
-                      'assets/imagensmusica/ConeCrew.png',
+                      'assets/imagenspodcast/PodDelas.png',
                       width: 115,
                       height: 115,
                       fit: BoxFit.cover,
                     ),
                     const SizedBox(width: 10),
                     Image.asset(
-                      'assets/imagensmusica/livinho.png',
+                      'assets/imagenspodcast/PodPah.png',
                       width: 115,
                       height: 115,
                       fit: BoxFit.cover,
                     ),
                     const SizedBox(width: 10),
                     Image.asset(
-                      'assets/imagensmusica/BackToBlack.png',
+                      'assets/imagenspodcast/PodCats.png',
                       width: 115,
                       height: 115,
                       fit: BoxFit.cover,
                     ),
                     const SizedBox(width: 10),
                     Image.asset(
-                      'assets/imagensmusica/ConeCrew.png',
+                      'assets/imagenspodcast/PodDelas.png',
                       width: 115,
                       height: 115,
                       fit: BoxFit.cover,
