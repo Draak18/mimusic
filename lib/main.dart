@@ -25,7 +25,6 @@ class MyApp extends StatelessWidget {
         "/home": (context) => const Home(),
         "/biblioteca": (context) => const Biblioteca(),
         "/usuarios": (context) => const Usuarios(),
-        "/pesquisa": (context) => const Pesquisa(),
       },
     );
   }
