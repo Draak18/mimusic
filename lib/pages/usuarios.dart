@@ -53,28 +53,16 @@ class UsuariosState extends State<Usuarios> {
       children: [
         const SizedBox(height: 16),
         mimusicTitulo(),
-        const SizedBox(height: 24),
-        Text(
-          "USUÁRIOS",
-          style: GoogleFonts.montserrat(
-            fontSize: 20,
-            color: Colors.white,
-            fontWeight: FontWeight.w600,
-            height: 1,
-          ),
-        ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 30),
         Row(
-          mainAxisSize: MainAxisSize.min, // Adicione essa linha
+          mainAxisSize: MainAxisSize.min,
           children: [
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
-                      Navigator.of(context).pushNamed("/home");
+                      Navigator.of(context).pushNamed("/");
                     },
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(16.0),
@@ -86,7 +74,7 @@ class UsuariosState extends State<Usuarios> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Text("USUÁRIOS",
                       style: GoogleFonts.montserrat(
                         fontSize: 14,
@@ -97,15 +85,13 @@ class UsuariosState extends State<Usuarios> {
                 ],
               ),
             ),
-            SizedBox(width: 48),
+            const SizedBox(width: 48),
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
-                      Navigator.of(context).pushNamed("/home");
+                      Navigator.of(context).pushNamed("/");
                     },
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(16.0),
@@ -117,7 +103,7 @@ class UsuariosState extends State<Usuarios> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Text("USUÁRIOS",
                       style: GoogleFonts.montserrat(
                         fontSize: 14,
@@ -130,18 +116,16 @@ class UsuariosState extends State<Usuarios> {
             ),
           ],
         ),
-        SizedBox(height: 32),
+        const SizedBox(height: 32),
         Row(
-          mainAxisSize: MainAxisSize.min, // Adicione essa linha
+          mainAxisSize: MainAxisSize.min,
           children: [
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
-                      Navigator.of(context).pushNamed("/home");
+                      Navigator.of(context).pushNamed("/");
                     },
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(16.0),
@@ -153,7 +137,7 @@ class UsuariosState extends State<Usuarios> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Text("USUÁRIOS",
                       style: GoogleFonts.montserrat(
                         fontSize: 14,
@@ -164,15 +148,13 @@ class UsuariosState extends State<Usuarios> {
                 ],
               ),
             ),
-            SizedBox(width: 48),
+            const SizedBox(width: 48),
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
-                      Navigator.of(context).pushNamed("/home");
+                      Navigator.of(context).pushNamed("/");
                     },
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(16.0),
@@ -184,7 +166,7 @@ class UsuariosState extends State<Usuarios> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Text("USUÁRIOS",
                       style: GoogleFonts.montserrat(
                         fontSize: 14,
@@ -197,18 +179,16 @@ class UsuariosState extends State<Usuarios> {
             ),
           ],
         ),
-        SizedBox(height: 32),
+        const SizedBox(height: 32),
         Row(
-          mainAxisSize: MainAxisSize.min, // Adicione essa linha
+          mainAxisSize: MainAxisSize.min,
           children: [
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
-                      Navigator.of(context).pushNamed("/home");
+                      Navigator.of(context).pushNamed("/");
                     },
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(16.0),
@@ -220,7 +200,7 @@ class UsuariosState extends State<Usuarios> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Text("USUÁRIOS",
                       style: GoogleFonts.montserrat(
                         fontSize: 14,
@@ -231,15 +211,13 @@ class UsuariosState extends State<Usuarios> {
                 ],
               ),
             ),
-            SizedBox(width: 48),
+            const SizedBox(width: 48),
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
-                      Navigator.of(context).pushNamed("/home");
+                      Navigator.of(context).pushNamed("/");
                     },
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(16.0),
@@ -251,7 +229,7 @@ class UsuariosState extends State<Usuarios> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Text("USUÁRIOS",
                       style: GoogleFonts.montserrat(
                         fontSize: 14,
@@ -264,18 +242,16 @@ class UsuariosState extends State<Usuarios> {
             ),
           ],
         ),
-        SizedBox(height: 32),
+        const SizedBox(height: 32),
         Row(
-          mainAxisSize: MainAxisSize.min, // Adicione essa linha
+          mainAxisSize: MainAxisSize.min,
           children: [
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
-                      Navigator.of(context).pushNamed("/home");
+                      Navigator.of(context).pushNamed("/");
                     },
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(16.0),
@@ -287,7 +263,7 @@ class UsuariosState extends State<Usuarios> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Text("USUÁRIOS",
                       style: GoogleFonts.montserrat(
                         fontSize: 14,
@@ -298,15 +274,13 @@ class UsuariosState extends State<Usuarios> {
                 ],
               ),
             ),
-            SizedBox(width: 48),
+            const SizedBox(width: 48),
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
-                      Navigator.of(context).pushNamed("/home");
+                      Navigator.of(context).pushNamed("/");
                     },
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(16.0),
@@ -318,7 +292,7 @@ class UsuariosState extends State<Usuarios> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Text("USUÁRIOS",
                       style: GoogleFonts.montserrat(
                         fontSize: 14,
@@ -347,8 +321,10 @@ class UsuariosState extends State<Usuarios> {
           border: Border.all(
               width: 2.0, color: const Color.fromARGB(13, 198, 198, 198)),
         ),
-        child: Column(
-          children: [perfis()],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [perfis()],
+          ),
         ),
       ),
     );

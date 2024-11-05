@@ -24,6 +24,7 @@ class BibliotecaState extends State<Biblioteca> {
   Widget barra() {
     return SizedBox(
       height: 50,
+      width: 400,
       child: TextFormField(
         keyboardType: TextInputType.text,
         style: GoogleFonts.montserrat(
@@ -40,7 +41,24 @@ class BibliotecaState extends State<Biblioteca> {
           filled: true,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(18.0),
-            borderSide: BorderSide.none,
+            borderSide: const BorderSide(
+              color: Colors.black,
+              width: 1.0,
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(18.0),
+            borderSide: const BorderSide(
+              color: Colors.black,
+              width: 1.0,
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(18.0),
+            borderSide: const BorderSide(
+              color: Colors.black,
+              width: 1.0,
+            ),
           ),
           contentPadding: const EdgeInsets.symmetric(vertical: 12.0),
         ),
@@ -49,12 +67,12 @@ class BibliotecaState extends State<Biblioteca> {
   }
 
   Widget albuns() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(right: 15.0),
-          child: ElevatedButton(
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          ElevatedButton(
             style: ElevatedButton.styleFrom(
               minimumSize: const Size(112, 24),
               backgroundColor: _isWidgetsecoes1Visible
@@ -63,29 +81,36 @@ class BibliotecaState extends State<Biblioteca> {
               foregroundColor: Colors.white,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8.0),
+                side: const BorderSide(
+                  color: Colors.black,
+                  width: 1.0,
+                ),
               ),
             ),
             onPressed: () => toggleSection(1),
             child: const Text("Playlists"),
           ),
-        ),
-        ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            minimumSize: const Size(112, 24),
-            backgroundColor: _isWidgetsecoes2Visible
-                ? const Color.fromRGBO(189, 0, 243, 1)
-                : const Color.fromRGBO(44, 44, 44, 1.0),
-            foregroundColor: Colors.white,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8.0),
+          const SizedBox(width: 24),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              minimumSize: const Size(112, 24),
+              backgroundColor: _isWidgetsecoes2Visible
+                  ? const Color.fromRGBO(189, 0, 243, 1)
+                  : const Color.fromRGBO(44, 44, 44, 1.0),
+              foregroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8.0),
+                side: const BorderSide(
+                  color: Colors.black,
+                  width: 1.0,
+                ),
+              ),
             ),
+            onPressed: () => toggleSection(2),
+            child: const Text("Álbuns"),
           ),
-          onPressed: () => toggleSection(2),
-          child: const Text("Álbuns"),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 15.0),
-          child: ElevatedButton(
+          const SizedBox(width: 24),
+          ElevatedButton(
             style: ElevatedButton.styleFrom(
               minimumSize: const Size(112, 24),
               backgroundColor: _isWidgetsecoes3Visible
@@ -94,13 +119,18 @@ class BibliotecaState extends State<Biblioteca> {
               foregroundColor: Colors.white,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8.0),
+                side: const BorderSide(
+                  color: Colors.black,
+                  width: 1.0,
+                ),
               ),
             ),
             onPressed: () => toggleSection(3),
             child: const Text("Músicas"),
           ),
-        ),
-      ],
+          const SizedBox(width: 16), // Espaçamento à direita
+        ],
+      ),
     );
   }
 
@@ -148,7 +178,7 @@ class BibliotecaState extends State<Biblioteca> {
             mimusicFoto(),
             Expanded(
               child: Center(
-                child: mimusicTitulo(), 
+                child: mimusicTitulo(),
               ),
             ),
           ],

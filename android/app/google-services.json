@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "483188491876",
+    "project_id": "macacoalbino-3dcd3",
+    "storage_bucket": "macacoalbino-3dcd3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:483188491876:android:5fe8bcced6284e83030171",
+        "android_client_info": {
+          "package_name": "com.example.login_cadastro"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCA1FY-KBcW5wMvM8AtGTh8Nw2-aeEzihA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:483188491876:android:3626047120360fbb030171",
+        "android_client_info": {
+          "package_name": "mimusic.com.br.mimusic"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCA1FY-KBcW5wMvM8AtGTh8Nw2-aeEzihA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
