@@ -13,12 +13,12 @@ class TelaMusicaState extends State<TelaMusica> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black, 
+        backgroundColor: Colors.black,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           iconSize: 30,
           onPressed: () {
-            Navigator.pop(context); 
+            Navigator.pop(context);
           },
         ),
       ),
@@ -27,7 +27,7 @@ class TelaMusicaState extends State<TelaMusica> {
           Container(
             color: Colors.black,
           ),
-          SingleChildScrollView( 
+          SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
               child: Container(
@@ -72,7 +72,7 @@ class TelaMusicaState extends State<TelaMusica> {
                     ),
                     const SizedBox(height: 5),
                     Slider(
-                      value: 0.70,
+                      value: 0.50,
                       onChanged: (value) {},
                       activeColor: Colors.white,
                       inactiveColor: Colors.white30,
@@ -153,7 +153,7 @@ class TelaMusicaState extends State<TelaMusica> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 5), 
+                    const SizedBox(height: 5),
                   ],
                 ),
               ),

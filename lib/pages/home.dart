@@ -98,11 +98,16 @@ class HomeState extends State<Home> {
                       fit: BoxFit.cover,
                     ),
                     const SizedBox(width: 10),
-                    Image.asset(
-                      'assets/imagensmusica/ConeCrew.png',
-                      width: 115,
-                      height: 115,
-                      fit: BoxFit.cover,
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pushNamed("/telamusica");
+                      },
+                      child: Image.asset(
+                        'assets/imagensmusica/ConeCrew.png',
+                        width: 115,
+                        height: 115,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                     const SizedBox(width: 10),
                     Image.asset(
