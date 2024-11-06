@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mimusic/pages/cadastro.dart';
 import 'package:mimusic/pages/home_page.dart';
 import 'package:mimusic/pages/login.dart';
+import 'package:mimusic/pages/usuario.dart';
 import 'package:mimusic/pages/usuarios.dart';
 
 void main() {
@@ -19,12 +20,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.purple,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      initialRoute: '/',
+      initialRoute: '/usuario',
       routes: {
         '/': (context) => const HomePage(),
         '/cadastro': (context) => const Cadastro(),
         '/login': (context) => const Login(),
         '/usuarios': (context) => const Usuarios(),
+        '/usuario': (context) => const Usuario(),
       },
     );
   }

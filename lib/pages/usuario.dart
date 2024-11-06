@@ -14,7 +14,7 @@ class UsuarioState extends State<Usuario> {
   Widget seta() {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).pushNamed("/home");
+        Navigator.of(context).pushNamed("/");
       },
       child: Image.asset(
         'assets/images/arrow.png',
@@ -60,7 +60,7 @@ class UsuarioState extends State<Usuario> {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(
+          SizedBox(
             height: 56,
             width: 56,
             child: Image.asset(
@@ -141,7 +141,7 @@ class UsuarioState extends State<Usuario> {
   Widget botao2() {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).pushNamed("/home");
+        Navigator.of(context).pushNamed("/");
       },
       child: Image.asset(
         'assets/images/cardapio.png',
@@ -180,7 +180,7 @@ class UsuarioState extends State<Usuario> {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pushNamed("/home");
+                          Navigator.of(context).pushNamed("/");
                         },
                         child: Image.asset(
                           'assets/imagensmusica/livinho.png',
@@ -197,7 +197,7 @@ class UsuarioState extends State<Usuario> {
                         children: [
                           GestureDetector(
                             onTap: () {
-                              Navigator.of(context).pushNamed("/home");
+                              Navigator.of(context).pushNamed("/");
                             },
                             child: const Text(
                               'Irmã Gostosa',
@@ -210,7 +210,7 @@ class UsuarioState extends State<Usuario> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              Navigator.of(context).pushNamed("/home");
+                              Navigator.of(context).pushNamed("/");
                             },
                             child: const Text(
                               'Música de Livinho',
@@ -231,7 +231,7 @@ class UsuarioState extends State<Usuario> {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pushNamed("/home");
+                          Navigator.of(context).pushNamed("/");
                         },
                         child: Image.asset(
                           'assets/imagensmusica/BackToBlack.png',
@@ -248,7 +248,7 @@ class UsuarioState extends State<Usuario> {
                         children: [
                           GestureDetector(
                             onTap: () {
-                              Navigator.of(context).pushNamed("/home");
+                              Navigator.of(context).pushNamed("/");
                             },
                             child: const Text(
                               'Back To Black',
@@ -261,7 +261,7 @@ class UsuarioState extends State<Usuario> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              Navigator.of(context).pushNamed("/home");
+                              Navigator.of(context).pushNamed("/");
                             },
                             child: const Text(
                               'Música de Amy  Winehouse',
@@ -282,7 +282,7 @@ class UsuarioState extends State<Usuario> {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pushNamed("/home");
+                          Navigator.of(context).pushNamed("/");
                         },
                         child: Image.asset(
                           'assets/imagensmusica/ConeCrew.png',
@@ -299,7 +299,7 @@ class UsuarioState extends State<Usuario> {
                         children: [
                           GestureDetector(
                             onTap: () {
-                              Navigator.of(context).pushNamed("/home");
+                              Navigator.of(context).pushNamed("/");
                             },
                             child: const Text(
                               'Com os Neurônios \nEvoluindo',
@@ -312,7 +312,7 @@ class UsuarioState extends State<Usuario> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              Navigator.of(context).pushNamed("/home");
+                              Navigator.of(context).pushNamed("/");
                             },
                             child: const Text(
                               'Álbum de Cone Crew Diretoria',
@@ -333,7 +333,7 @@ class UsuarioState extends State<Usuario> {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pushNamed("/home");
+                          Navigator.of(context).pushNamed("/");
                         },
                         child: Image.asset(
                           'assets/imagensartista/AnaCastelo.png',
@@ -350,7 +350,7 @@ class UsuarioState extends State<Usuario> {
                         children: [
                           GestureDetector(
                             onTap: () {
-                              Navigator.of(context).pushNamed("/home");
+                              Navigator.of(context).pushNamed("/");
                             },
                             child: const Text(
                               'Herança',
@@ -363,7 +363,7 @@ class UsuarioState extends State<Usuario> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              Navigator.of(context).pushNamed("/home");
+                              Navigator.of(context).pushNamed("/");
                             },
                             child: const Text(
                               'Música de Ana Castelo',
@@ -384,7 +384,7 @@ class UsuarioState extends State<Usuario> {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pushNamed("/home");
+                          Navigator.of(context).pushNamed("/");
                         },
                         child: Image.asset(
                           'assets/imagensartista/ananda.png',
@@ -401,7 +401,7 @@ class UsuarioState extends State<Usuario> {
                         children: [
                           GestureDetector(
                             onTap: () {
-                              Navigator.of(context).pushNamed("/home");
+                              Navigator.of(context).pushNamed("/");
                             },
                             child: const Text(
                               'Fiz 18',
@@ -414,7 +414,7 @@ class UsuarioState extends State<Usuario> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              Navigator.of(context).pushNamed("/home");
+                              Navigator.of(context).pushNamed("/");
                             },
                             child: const Text(
                               'Música de Ananda',

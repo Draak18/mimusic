@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mimusic/components/perfilImage.dart';
 
 class Biblioteca extends StatefulWidget {
   const Biblioteca({super.key});
@@ -134,13 +135,6 @@ class BibliotecaState extends State<Biblioteca> {
     );
   }
 
-  Widget mimusicFoto() {
-    return Image.asset(
-      "assets/images/perfilImage.png",
-      height: 40, // Ajuste a altura conforme necessário
-    );
-  }
-
   Widget mimusicTitulo() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -175,7 +169,7 @@ class BibliotecaState extends State<Biblioteca> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            mimusicFoto(),
+            const PerfilImage(),
             Expanded(
               child: Center(
                 child: mimusicTitulo(),
