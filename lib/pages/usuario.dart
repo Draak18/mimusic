@@ -14,7 +14,7 @@ class UsuarioState extends State<Usuario> {
   Widget seta() {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).pushNamed("/");
+        Navigator.pop(context);
       },
       child: Image.asset(
         'assets/images/arrow.png',
