@@ -58,7 +58,24 @@ class PesquisaState extends State<Pesquisa> {
           filled: true,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(18.0),
-            borderSide: BorderSide.none,
+            borderSide: const BorderSide(
+              color: Colors.black,
+              width: 1.0,
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(18.0),
+            borderSide: const BorderSide(
+              color: Colors.black,
+              width: 1.0,
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(18.0),
+            borderSide: const BorderSide(
+              color: Colors.black,
+              width: 1.0,
+            ),
           ),
           contentPadding: const EdgeInsets.symmetric(vertical: 12.0),
         ),
@@ -67,53 +84,68 @@ class PesquisaState extends State<Pesquisa> {
   }
 
   Widget albuns() {
-    return Center(
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
       child: Row(
-        mainAxisAlignment:
-            MainAxisAlignment.spaceBetween, // Espaçamento igual entre os botões
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               minimumSize: const Size(112, 24),
               backgroundColor: _isWidgetsecoes1Visible
-                  ? Color.fromRGBO(189, 0, 243, 1)
+                  ? const Color.fromRGBO(189, 0, 243, 1)
                   : const Color.fromRGBO(44, 44, 44, 1.0),
               foregroundColor: Colors.white,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8.0),
+                side: const BorderSide(
+                  color: Colors.black,
+                  width: 1.0,
+                ),
               ),
             ),
             onPressed: () => toggleSection(1),
-            child: Text("Playlists"),
+            child: const Text("Playlists"),
           ),
+          const SizedBox(width: 24),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               minimumSize: const Size(112, 24),
               backgroundColor: _isWidgetsecoes2Visible
-                  ? Color.fromRGBO(189, 0, 243, 1)
+                  ? const Color.fromRGBO(189, 0, 243, 1)
                   : const Color.fromRGBO(44, 44, 44, 1.0),
               foregroundColor: Colors.white,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8.0),
+                side: const BorderSide(
+                  color: Colors.black,
+                  width: 1.0,
+                ),
               ),
             ),
             onPressed: () => toggleSection(2),
-            child: Text("Albúns"),
+            child: const Text("Álbuns"),
           ),
+          const SizedBox(width: 24),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               minimumSize: const Size(112, 24),
               backgroundColor: _isWidgetsecoes3Visible
-                  ? Color.fromRGBO(189, 0, 243, 1)
+                  ? const Color.fromRGBO(189, 0, 243, 1)
                   : const Color.fromRGBO(44, 44, 44, 1.0),
               foregroundColor: Colors.white,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8.0),
+                side: const BorderSide(
+                  color: Colors.black,
+                  width: 1.0,
+                ),
               ),
             ),
             onPressed: () => toggleSection(3),
-            child: Text("Músicas"),
+            child: const Text("Músicas"),
           ),
+          const SizedBox(width: 16), // Espaçamento à direita
         ],
       ),
     );
@@ -124,15 +156,13 @@ class PesquisaState extends State<Pesquisa> {
       children: [
         const SizedBox(height: 16),
         Row(
-          mainAxisSize: MainAxisSize.min, // Adicione essa linha
+          mainAxisSize: MainAxisSize.min,
           children: [
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -141,8 +171,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -151,9 +181,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'Sertanejo Universitário',
                           style: TextStyle(
@@ -168,14 +196,12 @@ class PesquisaState extends State<Pesquisa> {
                 ],
               ),
             ),
-            SizedBox(width: 24),
+            const SizedBox(width: 24),
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -184,8 +210,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -194,9 +220,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'Funk do RJ',
                           style: TextStyle(
@@ -213,17 +237,15 @@ class PesquisaState extends State<Pesquisa> {
             ),
           ],
         ),
-        SizedBox(height: 32),
+        const SizedBox(height: 32),
         Row(
-          mainAxisSize: MainAxisSize.min, // Adicione essa linha
+          mainAxisSize: MainAxisSize.min,
           children: [
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -232,8 +254,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -242,9 +264,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'Sofrência',
                           style: TextStyle(
@@ -259,14 +279,12 @@ class PesquisaState extends State<Pesquisa> {
                 ],
               ),
             ),
-            SizedBox(width: 24),
+            const SizedBox(width: 24),
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -275,8 +293,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -285,9 +303,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'As melhores de 2024',
                           style: TextStyle(
@@ -304,17 +320,15 @@ class PesquisaState extends State<Pesquisa> {
             ),
           ],
         ),
-        SizedBox(height: 32),
+        const SizedBox(height: 32),
         Row(
-          mainAxisSize: MainAxisSize.min, // Adicione essa linha
+          mainAxisSize: MainAxisSize.min,
           children: [
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -323,8 +337,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -333,9 +347,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'Para pensar na vida',
                           style: TextStyle(
@@ -350,14 +362,12 @@ class PesquisaState extends State<Pesquisa> {
                 ],
               ),
             ),
-            SizedBox(width: 24),
+            const SizedBox(width: 24),
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -366,8 +376,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -376,9 +386,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'Me sentindo diva',
                           style: TextStyle(
@@ -395,17 +403,15 @@ class PesquisaState extends State<Pesquisa> {
             ),
           ],
         ),
-        SizedBox(height: 32),
+        const SizedBox(height: 32),
         Row(
-          mainAxisSize: MainAxisSize.min, // Adicione essa linha
+          mainAxisSize: MainAxisSize.min,
           children: [
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -414,8 +420,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -424,9 +430,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'Brega funk',
                           style: TextStyle(
@@ -441,14 +445,12 @@ class PesquisaState extends State<Pesquisa> {
                 ],
               ),
             ),
-            SizedBox(width: 24),
+            const SizedBox(width: 24),
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -457,8 +459,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -467,9 +469,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'Funks de SP',
                           style: TextStyle(
@@ -486,17 +486,15 @@ class PesquisaState extends State<Pesquisa> {
             ),
           ],
         ),
-        SizedBox(height: 32),
+        const SizedBox(height: 32),
         Row(
-          mainAxisSize: MainAxisSize.min, // Adicione essa linha
+          mainAxisSize: MainAxisSize.min,
           children: [
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -505,8 +503,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -515,9 +513,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'Hip Hop',
                           style: TextStyle(
@@ -532,14 +528,12 @@ class PesquisaState extends State<Pesquisa> {
                 ],
               ),
             ),
-            SizedBox(width: 24),
+            const SizedBox(width: 24),
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -548,8 +542,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -558,9 +552,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'Músicas românticas ',
                           style: TextStyle(
@@ -577,17 +569,15 @@ class PesquisaState extends State<Pesquisa> {
             ),
           ],
         ),
-        SizedBox(height: 32),
+        const SizedBox(height: 32),
         Row(
-          mainAxisSize: MainAxisSize.min, // Adicione essa linha
+          mainAxisSize: MainAxisSize.min,
           children: [
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -596,8 +586,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -606,9 +596,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'Internacionais',
                           style: TextStyle(
@@ -623,14 +611,12 @@ class PesquisaState extends State<Pesquisa> {
                 ],
               ),
             ),
-            SizedBox(width: 24),
+            const SizedBox(width: 24),
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -639,8 +625,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -649,9 +635,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'Musícas para estudar',
                           style: TextStyle(
@@ -677,15 +661,13 @@ class PesquisaState extends State<Pesquisa> {
       children: [
         const SizedBox(height: 16),
         Row(
-          mainAxisSize: MainAxisSize.min, // Adicione essa linha
+          mainAxisSize: MainAxisSize.min,
           children: [
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -694,8 +676,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -704,9 +686,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'LUAN CITY',
                           style: TextStyle(
@@ -721,14 +701,12 @@ class PesquisaState extends State<Pesquisa> {
                 ],
               ),
             ),
-            SizedBox(width: 24),
+            const SizedBox(width: 24),
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -737,8 +715,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -747,9 +725,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'Live-Móvel',
                           style: TextStyle(
@@ -766,17 +742,15 @@ class PesquisaState extends State<Pesquisa> {
             ),
           ],
         ),
-        SizedBox(height: 32),
+        const SizedBox(height: 32),
         Row(
-          mainAxisSize: MainAxisSize.min, // Adicione essa linha
+          mainAxisSize: MainAxisSize.min,
           children: [
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -785,8 +759,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -795,9 +769,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'LUAN AO VIVO NA LUA',
                           style: TextStyle(
@@ -812,14 +784,12 @@ class PesquisaState extends State<Pesquisa> {
                 ],
               ),
             ),
-            SizedBox(width: 24),
+            const SizedBox(width: 24),
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -828,8 +798,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -838,9 +808,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'LUAN CITY 2.0',
                           style: TextStyle(
@@ -857,17 +825,15 @@ class PesquisaState extends State<Pesquisa> {
             ),
           ],
         ),
-        SizedBox(height: 32),
+        const SizedBox(height: 32),
         Row(
-          mainAxisSize: MainAxisSize.min, // Adicione essa linha
+          mainAxisSize: MainAxisSize.min,
           children: [
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -876,8 +842,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -886,9 +852,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'Patroas',
                           style: TextStyle(
@@ -903,14 +867,12 @@ class PesquisaState extends State<Pesquisa> {
                 ],
               ),
             ),
-            SizedBox(width: 24),
+            const SizedBox(width: 24),
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -919,8 +881,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -929,9 +891,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'Todos os Cantos',
                           style: TextStyle(
@@ -948,17 +908,15 @@ class PesquisaState extends State<Pesquisa> {
             ),
           ],
         ),
-        SizedBox(height: 32),
+        const SizedBox(height: 32),
         Row(
-          mainAxisSize: MainAxisSize.min, // Adicione essa linha
+          mainAxisSize: MainAxisSize.min,
           children: [
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -967,8 +925,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -977,9 +935,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'Decretos Reais',
                           style: TextStyle(
@@ -994,14 +950,12 @@ class PesquisaState extends State<Pesquisa> {
                 ],
               ),
             ),
-            SizedBox(width: 24),
+            const SizedBox(width: 24),
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -1010,8 +964,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -1020,9 +974,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'Vagabundo Romântico',
                           style: TextStyle(
@@ -1039,17 +991,15 @@ class PesquisaState extends State<Pesquisa> {
             ),
           ],
         ),
-        SizedBox(height: 32),
+        const SizedBox(height: 32),
         Row(
-          mainAxisSize: MainAxisSize.min, // Adicione essa linha
+          mainAxisSize: MainAxisSize.min,
           children: [
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -1058,8 +1008,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -1068,9 +1018,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'Fruto Proibido',
                           style: TextStyle(
@@ -1085,14 +1033,12 @@ class PesquisaState extends State<Pesquisa> {
                 ],
               ),
             ),
-            SizedBox(width: 24),
+            const SizedBox(width: 24),
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -1101,8 +1047,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -1111,9 +1057,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'Mágico dos flows',
                           style: TextStyle(
@@ -1130,17 +1074,15 @@ class PesquisaState extends State<Pesquisa> {
             ),
           ],
         ),
-        SizedBox(height: 32),
+        const SizedBox(height: 32),
         Row(
-          mainAxisSize: MainAxisSize.min, // Adicione essa linha
+          mainAxisSize: MainAxisSize.min,
           children: [
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -1149,8 +1091,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -1159,9 +1101,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'O próprio',
                           style: TextStyle(
@@ -1176,14 +1116,12 @@ class PesquisaState extends State<Pesquisa> {
                 ],
               ),
             ),
-            SizedBox(width: 24),
+            const SizedBox(width: 24),
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -1192,8 +1130,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -1202,9 +1140,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'RUSH!',
                           style: TextStyle(
@@ -1230,15 +1166,13 @@ class PesquisaState extends State<Pesquisa> {
       children: [
         const SizedBox(height: 16),
         Row(
-          mainAxisSize: MainAxisSize.min, // Adicione essa linha
+          mainAxisSize: MainAxisSize.min,
           children: [
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -1247,8 +1181,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -1257,9 +1191,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'MTG',
                           style: TextStyle(
@@ -1274,14 +1206,12 @@ class PesquisaState extends State<Pesquisa> {
                 ],
               ),
             ),
-            SizedBox(width: 24),
+            const SizedBox(width: 24),
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -1290,8 +1220,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -1300,9 +1230,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'Foi Bom',
                           style: TextStyle(
@@ -1319,17 +1247,15 @@ class PesquisaState extends State<Pesquisa> {
             ),
           ],
         ),
-        SizedBox(height: 32),
+        const SizedBox(height: 32),
         Row(
-          mainAxisSize: MainAxisSize.min, // Adicione essa linha
+          mainAxisSize: MainAxisSize.min,
           children: [
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -1338,8 +1264,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -1348,9 +1274,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'Herança',
                           style: TextStyle(
@@ -1365,14 +1289,12 @@ class PesquisaState extends State<Pesquisa> {
                 ],
               ),
             ),
-            SizedBox(width: 24),
+            const SizedBox(width: 24),
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -1381,8 +1303,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -1391,9 +1313,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'Dança',
                           style: TextStyle(
@@ -1410,17 +1330,15 @@ class PesquisaState extends State<Pesquisa> {
             ),
           ],
         ),
-        SizedBox(height: 32),
+        const SizedBox(height: 32),
         Row(
-          mainAxisSize: MainAxisSize.min, // Adicione essa linha
+          mainAxisSize: MainAxisSize.min,
           children: [
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -1429,8 +1347,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -1439,9 +1357,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'Ela Vem',
                           style: TextStyle(
@@ -1456,14 +1372,12 @@ class PesquisaState extends State<Pesquisa> {
                 ],
               ),
             ),
-            SizedBox(width: 24),
+            const SizedBox(width: 24),
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -1472,8 +1386,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -1482,9 +1396,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 33,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 33, left: 10),
                         child: Text(
                           'I WANNA BE YOUR SLAVE',
                           style: TextStyle(
@@ -1501,17 +1413,15 @@ class PesquisaState extends State<Pesquisa> {
             ),
           ],
         ),
-        SizedBox(height: 32),
+        const SizedBox(height: 32),
         Row(
-          mainAxisSize: MainAxisSize.min, // Adicione essa linha
+          mainAxisSize: MainAxisSize.min,
           children: [
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -1520,8 +1430,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -1530,9 +1440,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'Sagrado Profano',
                           style: TextStyle(
@@ -1547,14 +1455,12 @@ class PesquisaState extends State<Pesquisa> {
                 ],
               ),
             ),
-            SizedBox(width: 24),
+            const SizedBox(width: 24),
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -1563,8 +1469,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -1573,9 +1479,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'Chuva de Arroz',
                           style: TextStyle(
@@ -1592,17 +1496,15 @@ class PesquisaState extends State<Pesquisa> {
             ),
           ],
         ),
-        SizedBox(height: 32),
+        const SizedBox(height: 32),
         Row(
-          mainAxisSize: MainAxisSize.min, // Adicione essa linha
+          mainAxisSize: MainAxisSize.min,
           children: [
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -1611,8 +1513,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -1621,9 +1523,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'Te Esperando',
                           style: TextStyle(
@@ -1638,14 +1538,12 @@ class PesquisaState extends State<Pesquisa> {
                 ],
               ),
             ),
-            SizedBox(width: 24),
+            const SizedBox(width: 24),
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -1654,8 +1552,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -1664,9 +1562,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'A hora é agora',
                           style: TextStyle(
@@ -1683,17 +1579,15 @@ class PesquisaState extends State<Pesquisa> {
             ),
           ],
         ),
-        SizedBox(height: 32),
+        const SizedBox(height: 32),
         Row(
-          mainAxisSize: MainAxisSize.min, // Adicione essa linha
+          mainAxisSize: MainAxisSize.min,
           children: [
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -1702,8 +1596,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -1712,9 +1606,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'Escorpiana',
                           style: TextStyle(
@@ -1729,14 +1621,12 @@ class PesquisaState extends State<Pesquisa> {
                 ],
               ),
             ),
-            SizedBox(width: 24),
+            const SizedBox(width: 24),
             Flexible(
-              // Use Flexible em vez de definir uma largura fixa
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Ação ao tocar na imagem
                       Navigator.of(context).pushNamed("/cadastro");
                     },
                     child: Container(
@@ -1745,8 +1635,8 @@ class PesquisaState extends State<Pesquisa> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color.fromRGBO(108, 10, 136, 1.0), // Rosa
-                            Color.fromRGBO(189, 0, 243, 1.0), // Roxo
+                            Color.fromRGBO(108, 10, 136, 1.0),
+                            Color.fromRGBO(189, 0, 243, 1.0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -1755,9 +1645,7 @@ class PesquisaState extends State<Pesquisa> {
                         color: const Color.fromRGBO(189, 0, 243, 1.0),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.only(
-                            top: 37,
-                            left: 10), // Ajuste o padding conforme necessário
+                        padding: EdgeInsets.only(top: 37, left: 10),
                         child: Text(
                           'Incerteza',
                           style: TextStyle(
@@ -1781,20 +1669,20 @@ class PesquisaState extends State<Pesquisa> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(13, 198, 198, 198),
+      backgroundColor: const Color.fromRGBO(17, 17, 17, 1),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(
               top: 37, left: 16.0, right: 16.0, bottom: 16.0),
           child: Column(children: [
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
             texto(),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             barra(),
             albuns(),
-            _isWidgetsecoes1Visible ? secoes1() : SizedBox.shrink(),
-            _isWidgetsecoes2Visible ? secoes2() : SizedBox.shrink(),
-            _isWidgetsecoes3Visible ? secoes3() : SizedBox.shrink(),
+            _isWidgetsecoes1Visible ? secoes1() : const SizedBox.shrink(),
+            _isWidgetsecoes2Visible ? secoes2() : const SizedBox.shrink(),
+            _isWidgetsecoes3Visible ? secoes3() : const SizedBox.shrink(),
           ]),
         ),
       ),

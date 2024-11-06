@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mimusic/pages/cadastro.dart';
-import 'package:mimusic/pages/home.dart';
+import 'package:mimusic/pages/home_page.dart';
 import 'package:mimusic/pages/login.dart';
+import 'package:mimusic/pages/usuario.dart';
 import 'package:mimusic/pages/usuarios.dart';
-import 'package:mimusic/pages/pesquisa.dart';
-import 'package:mimusic/pages/biblioteca.dart';
-import 'package:mimusic/pages/telamusica.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,17 +15,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primaryColor: Colors.purple),
-      initialRoute: "/login",
-      
+      title: 'MiMusic',
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      initialRoute: '/usuario',
       routes: {
-        "/login": (context) => const Login(),
-        "/pesquisa": (context) => const Pesquisa(),
-        "/cadastro": (context) => const Cadastro(),
-        "/home": (context) => const Home(),
-        "/biblioteca": (context) => const Biblioteca(),
-        "/usuarios": (context) => const Usuarios(),
-        "/telamusica": (context) => const TelaMusica(),
+        '/': (context) => const HomePage(),
+        '/cadastro': (context) => const Cadastro(),
+        '/login': (context) => const Login(),
+        '/usuarios': (context) => const Usuarios(),
+        '/usuario': (context) => const Usuario(),
       },
     );
   }

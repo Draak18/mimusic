@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mimusic/components/perfilImage.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -52,9 +53,7 @@ class HomeState extends State<Home> {
               padding: const EdgeInsets.all(16.0),
               child: Row(
                 children: [
-                  Image.asset(
-                    "assets/images/perfilImage.png",
-                  ),
+                  const PerfilImage(),
                   const SizedBox(width: 10),
                   Text(
                     "Seu Perfil",
