@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "1088984045709",
+    "project_id": "login-silverio",
+    "storage_bucket": "login-silverio.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1088984045709:android:eaee2c474a02eaeac52ac4",
+        "android_client_info": {
+          "package_name": "com.example.firbase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJ2QKskgARtaYVwpHb6x3h4LpKzbJ3e8w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1088984045709:android:8d22e2a568647672c52ac4",
+        "android_client_info": {
+          "package_name": "com.example.firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJ2QKskgARtaYVwpHb6x3h4LpKzbJ3e8w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1088984045709:android:8e41a31aa92d462ac52ac4",
+        "android_client_info": {
+          "package_name": "mimusic.com.br.mimusic"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJ2QKskgARtaYVwpHb6x3h4LpKzbJ3e8w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
