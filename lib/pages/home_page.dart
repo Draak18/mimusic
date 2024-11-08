@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mimusic/pages/biblioteca.dart';
 import 'package:mimusic/pages/home.dart';
-import 'package:mimusic/pages/navbar.dart';
+import 'package:mimusic/components/navbar.dart';
 import 'package:mimusic/pages/pesquisa.dart';
 
 class HomePage extends StatefulWidget {
