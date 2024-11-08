@@ -41,7 +41,7 @@ class PesquisaState extends State<Pesquisa> {
   Widget barra() {
     return SizedBox(
       height: 50,
-      width: 400,
+      width: double.infinity,
       child: TextFormField(
         keyboardType: TextInputType.text,
         style: GoogleFonts.montserrat(
@@ -167,7 +167,7 @@ class PesquisaState extends State<Pesquisa> {
                     },
                     child: Container(
                       height: 100,
-                      width: 200,
+                      width: 184,
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
@@ -499,7 +499,7 @@ class PesquisaState extends State<Pesquisa> {
                     },
                     child: Container(
                       height: 100,
-                      width: 200,
+                      width: 184,
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
@@ -582,7 +582,7 @@ class PesquisaState extends State<Pesquisa> {
                     },
                     child: Container(
                       height: 100,
-                      width: 200,
+                      width: 184,
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
@@ -672,7 +672,7 @@ class PesquisaState extends State<Pesquisa> {
                     },
                     child: Container(
                       height: 100,
-                      width: 200,
+                      width: 184,
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
@@ -1004,7 +1004,7 @@ class PesquisaState extends State<Pesquisa> {
                     },
                     child: Container(
                       height: 100,
-                      width: 200,
+                      width: 184,
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
@@ -1087,7 +1087,7 @@ class PesquisaState extends State<Pesquisa> {
                     },
                     child: Container(
                       height: 100,
-                      width: 200,
+                      width: 184,
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
@@ -1177,7 +1177,7 @@ class PesquisaState extends State<Pesquisa> {
                     },
                     child: Container(
                       height: 100,
-                      width: 200,
+                      width: 184,
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
@@ -1509,7 +1509,7 @@ class PesquisaState extends State<Pesquisa> {
                     },
                     child: Container(
                       height: 100,
-                      width: 200,
+                      width: 184,
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
@@ -1592,7 +1592,7 @@ class PesquisaState extends State<Pesquisa> {
                     },
                     child: Container(
                       height: 100,
-                      width: 200,
+                      width: 184,
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [

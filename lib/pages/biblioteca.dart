@@ -25,7 +25,7 @@ class BibliotecaState extends State<Biblioteca> {
   Widget barra() {
     return SizedBox(
       height: 50,
-      width: 400,
+      width: double.infinity,
       child: TextFormField(
         keyboardType: TextInputType.text,
         style: GoogleFonts.montserrat(
@@ -192,7 +192,6 @@ class BibliotecaState extends State<Biblioteca> {
                 ],
               ),
             ),
-            const SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.only(left: 16.0),
               child: Text(
@@ -204,7 +203,7 @@ class BibliotecaState extends State<Biblioteca> {
                 ),
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 4),
             Padding(
               padding: const EdgeInsets.only(left: 16.0),
               child: SingleChildScrollView(
@@ -256,7 +255,7 @@ class BibliotecaState extends State<Biblioteca> {
                 ),
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 4),
             Padding(
               padding: const EdgeInsets.only(left: 16.0),
               child: SingleChildScrollView(
@@ -308,7 +307,7 @@ class BibliotecaState extends State<Biblioteca> {
                 ),
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 16),
             Padding(
               padding: const EdgeInsets.only(left: 16.0),
               child: Text(
@@ -320,7 +319,7 @@ class BibliotecaState extends State<Biblioteca> {
                 ),
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 4),
             Padding(
               padding: const EdgeInsets.only(left: 16.0),
               child: SingleChildScrollView(
@@ -372,7 +371,7 @@ class BibliotecaState extends State<Biblioteca> {
                 ),
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 16),
             Padding(
               padding: const EdgeInsets.only(left: 16.0),
               child: Text(
@@ -384,7 +383,7 @@ class BibliotecaState extends State<Biblioteca> {
                 ),
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 4),
             Padding(
               padding: const EdgeInsets.only(left: 16.0),
               child: SingleChildScrollView(

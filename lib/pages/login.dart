@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:mimusic/pages/usuarios.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -11,6 +14,31 @@ class Login extends StatefulWidget {
 }
 
 class LoginState extends State<Login> {
+  @override
+  void initState() {
+    super.initState();
+    checkarLogin(); // Chame o método para verificar o status de login
+  }
+
+  // Método para verificar se o usuário deve ser mantido logado
+  Future<void> checkarLogin() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool? manterLogado = prefs.getBool('manter_logado');
+
+    if (manterLogado == true) {
+      // Tente fazer o login automaticamente
+      User? user = _auth.currentUser;
+      if (user != null) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => Usuarios(),
+          ),
+        );
+      }
+    }
+  }
+
   Widget mimusicTitulo() {
     return RichText(
       text: TextSpan(
@@ -156,11 +184,7 @@ class LoginState extends State<Login> {
           borderRadius: BorderRadius.circular(25.0),
         ),
       ),
-      onPressed: () {
-        if (keyForms.currentState!.validate()) {
-          Navigator.of(context).pushNamed("/usuarios");
-        }
-      },
+      onPressed: _login,
       child: Text(
         "Faça login",
         style: GoogleFonts.montserrat(
@@ -171,8 +195,54 @@ class LoginState extends State<Login> {
     );
   }
 
+  // Bolleanos
   bool mostrarSenha = false;
+
+  //Final
   final keyForms = GlobalKey<FormState>();
+  final FirebaseAuth _auth =
+      FirebaseAuth.instance; // Instância do FirebaseAuth para autenticação
+  final TextEditingController _emailController =
+      TextEditingController(); // Controlador para o campo de e-mail
+  final TextEditingController _passwordController =
+      TextEditingController(); // Controlador para o campo de senha
+
+// Método assíncrono para realizar o login
+  Future<void> _login() async {
+    try {
+      // Tenta fazer login com e-mail e senha fornecidos
+      await _auth.signInWithEmailAndPassword(
+        email: _emailController.text,
+        password: _passwordController.text,
+      );
+
+      // Salvar a preferência de manter-me logado
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setBool('manter_logado', caixaMarcada);
+
+      // Se o login for bem-sucedido, navega para a tela inicial
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => Usuarios(),
+        ),
+      );
+    } catch (e) {
+      // Em caso de erro, exibe uma notificação com a mensagem de erro
+      _showSnackBar('Erro no login', Colors.red);
+    }
+  }
+
+  // Método para exibir uma mensagem na parte inferior da tela (SnackBar)
+  void _showSnackBar(String message, Color color) {
+    final snackBar = SnackBar(
+      content: Text(message),
+      backgroundColor: color,
+      duration: Duration(seconds: 2), // Duração de exibição do SnackBar
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
   Widget formulario() {
     return Form(
       key: keyForms,
@@ -183,8 +253,9 @@ class LoginState extends State<Login> {
               maxWidth: 285,
               minHeight: 60,
             ),
+            // Email
             child: TextFormField(
-              // Email
+              controller: _emailController,
               keyboardType: TextInputType.emailAddress,
               style: GoogleFonts.montserrat(
                   color: const Color.fromRGBO(0, 0, 0, 0.4),
@@ -220,44 +291,53 @@ class LoginState extends State<Login> {
           const SizedBox(
             height: 16,
           ),
-          SizedBox(
-            // Senha
-            width: 285,
-            height: 60,
-            child: TextField(
-              autofocus: true,
-              obscureText: mostrarSenha == false ? true : false,
-              style: GoogleFonts.montserrat(
-                  color: const Color.fromRGBO(0, 0, 0, 0.4),
-                  fontSize: 13.0,
-                  fontWeight: FontWeight.w600),
-              cursorColor: const Color.fromRGBO(102, 57, 115, 1),
-              decoration: InputDecoration(
-                suffixIcon: GestureDetector(
-                  child: Transform.scale(
-                    scale: 0.8,
-                    child: Icon(mostrarSenha == false
-                        ? Icons.visibility_off
-                        : Icons.visibility),
-                  ),
-                  onTap: () {
-                    setState(() {
-                      mostrarSenha = !mostrarSenha;
-                    });
-                  },
-                ),
-                prefixIcon:
-                    const Icon(Icons.lock, color: Color.fromRGBO(0, 0, 0, 400)),
-                hintText: "Digite sua senha",
-                hintStyle: const TextStyle(color: Color.fromRGBO(0, 0, 0, 400)),
-                fillColor: const Color.fromRGBO(217, 217, 217, 1),
-                filled: true,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(40.0),
-                  borderSide: BorderSide.none,
-                ),
-              ),
+          Container(
+            constraints: const BoxConstraints(
+              maxWidth: 285,
+              minHeight: 60,
             ),
+            // Senha
+            child: TextFormField(
+                controller: _passwordController,
+                autofocus: true,
+                obscureText: mostrarSenha == false ? true : false,
+                style: GoogleFonts.montserrat(
+                    color: const Color.fromRGBO(0, 0, 0, 0.4),
+                    fontSize: 13.0,
+                    fontWeight: FontWeight.w600),
+                cursorColor: const Color.fromRGBO(102, 57, 115, 1),
+                decoration: InputDecoration(
+                  suffixIcon: GestureDetector(
+                    child: Transform.scale(
+                      scale: 0.8,
+                      child: Icon(mostrarSenha == false
+                          ? Icons.visibility_off
+                          : Icons.visibility),
+                    ),
+                    onTap: () {
+                      setState(() {
+                        mostrarSenha = !mostrarSenha;
+                      });
+                    },
+                  ),
+                  prefixIcon: const Icon(Icons.lock,
+                      color: Color.fromRGBO(0, 0, 0, 400)),
+                  hintText: "Digite sua senha",
+                  hintStyle:
+                      const TextStyle(color: Color.fromRGBO(0, 0, 0, 400)),
+                  fillColor: const Color.fromRGBO(217, 217, 217, 1),
+                  filled: true,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(40.0),
+                    borderSide: BorderSide.none,
+                  ),
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Por favor, insira uma senha';
+                  }
+                  return null;
+                }),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
