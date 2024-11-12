@@ -25,7 +25,7 @@ class BibliotecaState extends State<Biblioteca> {
   Widget barra() {
     return SizedBox(
       height: 50,
-      width: 400,
+      width: double.infinity,
       child: TextFormField(
         keyboardType: TextInputType.text,
         style: GoogleFonts.montserrat(
@@ -163,20 +163,11 @@ class BibliotecaState extends State<Biblioteca> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
+        title: mimusicTitulo(),
         backgroundColor: Colors.transparent,
         elevation: 0,
         automaticallyImplyLeading: false,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            const PerfilImage(),
-            Expanded(
-              child: Center(
-                child: mimusicTitulo(),
-              ),
-            ),
-          ],
-        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -186,13 +177,26 @@ class BibliotecaState extends State<Biblioteca> {
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Column(
                 children: [
+                  Row(
+                    children: [
+                      const PerfilImage(),
+                      const SizedBox(width: 10),
+                      Text(
+                        "Seu Perfil",
+                        style: GoogleFonts.montserrat(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
+                  ),
                   const SizedBox(height: 20),
                   barra(),
                   albuns(),
                 ],
               ),
             ),
-            const SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.only(left: 16.0),
               child: Text(
@@ -204,7 +208,7 @@ class BibliotecaState extends State<Biblioteca> {
                 ),
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 4),
             Padding(
               padding: const EdgeInsets.only(left: 16.0),
               child: SingleChildScrollView(
@@ -256,7 +260,7 @@ class BibliotecaState extends State<Biblioteca> {
                 ),
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 4),
             Padding(
               padding: const EdgeInsets.only(left: 16.0),
               child: SingleChildScrollView(
@@ -308,7 +312,7 @@ class BibliotecaState extends State<Biblioteca> {
                 ),
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 16),
             Padding(
               padding: const EdgeInsets.only(left: 16.0),
               child: Text(
@@ -320,7 +324,7 @@ class BibliotecaState extends State<Biblioteca> {
                 ),
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 4),
             Padding(
               padding: const EdgeInsets.only(left: 16.0),
               child: SingleChildScrollView(
@@ -372,7 +376,7 @@ class BibliotecaState extends State<Biblioteca> {
                 ),
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 16),
             Padding(
               padding: const EdgeInsets.only(left: 16.0),
               child: Text(
@@ -384,7 +388,7 @@ class BibliotecaState extends State<Biblioteca> {
                 ),
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 4),
             Padding(
               padding: const EdgeInsets.only(left: 16.0),
               child: SingleChildScrollView(

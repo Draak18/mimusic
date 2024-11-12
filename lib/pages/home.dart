@@ -77,7 +77,7 @@ class HomeState extends State<Home> {
                 ),
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 4),
             Padding(
               padding: const EdgeInsets.only(left: 16.0),
               child: SingleChildScrollView(
@@ -90,35 +90,40 @@ class HomeState extends State<Home> {
                       height: 115,
                       fit: BoxFit.cover,
                     ),
-                    const SizedBox(width: 10),
+                    const SizedBox(width: 8),
                     Image.asset(
                       'assets/imagensmusica/BackToBlack.png',
                       width: 115,
                       height: 115,
                       fit: BoxFit.cover,
                     ),
-                    const SizedBox(width: 10),
-                    Image.asset(
-                      'assets/imagensmusica/ConeCrew.png',
-                      width: 115,
-                      height: 115,
-                      fit: BoxFit.cover,
+                    const SizedBox(width: 8),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pushNamed("/telamusica");
+                      },
+                      child: Image.asset(
+                        'assets/imagensmusica/ConeCrew.png',
+                        width: 115,
+                        height: 115,
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                    const SizedBox(width: 10),
+                    const SizedBox(width: 8),
                     Image.asset(
                       'assets/imagensmusica/livinho.png',
                       width: 115,
                       height: 115,
                       fit: BoxFit.cover,
                     ),
-                    const SizedBox(width: 10),
+                    const SizedBox(width: 8),
                     Image.asset(
                       'assets/imagensmusica/BackToBlack.png',
                       width: 115,
                       height: 115,
                       fit: BoxFit.cover,
                     ),
-                    const SizedBox(width: 10),
+                    const SizedBox(width: 8),
                     Image.asset(
                       'assets/imagensmusica/ConeCrew.png',
                       width: 115,
@@ -129,6 +134,7 @@ class HomeState extends State<Home> {
                 ),
               ),
             ),
+            const SizedBox(height: 16),
             Padding(
               padding: const EdgeInsets.only(left: 16.0),
               child: Text(
@@ -140,7 +146,7 @@ class HomeState extends State<Home> {
                 ),
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 4),
             Padding(
               padding: const EdgeInsets.only(left: 16.0),
               child: SingleChildScrollView(
@@ -153,35 +159,35 @@ class HomeState extends State<Home> {
                       height: 115,
                       fit: BoxFit.cover,
                     ),
-                    const SizedBox(width: 10),
+                    const SizedBox(width: 8),
                     Image.asset(
                       'assets/imagenspodcast/PodDelas.png',
                       width: 115,
                       height: 115,
                       fit: BoxFit.cover,
                     ),
-                    const SizedBox(width: 10),
+                    const SizedBox(width: 8),
                     Image.asset(
                       'assets/imagenspodcast/PodCats.png',
                       width: 115,
                       height: 115,
                       fit: BoxFit.cover,
                     ),
-                    const SizedBox(width: 10),
+                    const SizedBox(width: 8),
                     Image.asset(
                       'assets/imagenspodcast/PodPah.png',
                       width: 115,
                       height: 115,
                       fit: BoxFit.cover,
                     ),
-                    const SizedBox(width: 10),
+                    const SizedBox(width: 8),
                     Image.asset(
                       'assets/imagenspodcast/PodDelas.png',
                       width: 115,
                       height: 115,
                       fit: BoxFit.cover,
                     ),
-                    const SizedBox(width: 10),
+                    const SizedBox(width: 8),
                     Image.asset(
                       'assets/imagenspodcast/PodCats.png',
                       width: 115,
@@ -192,6 +198,7 @@ class HomeState extends State<Home> {
                 ),
               ),
             ),
+            const SizedBox(height: 16),
             Padding(
               padding: const EdgeInsets.only(left: 16.0),
               child: Text(
@@ -203,7 +210,7 @@ class HomeState extends State<Home> {
                 ),
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 4),
             Padding(
               padding: const EdgeInsets.only(left: 16.0),
               child: SingleChildScrollView(
@@ -216,35 +223,35 @@ class HomeState extends State<Home> {
                       height: 115,
                       fit: BoxFit.cover,
                     ),
-                    const SizedBox(width: 10),
+                    const SizedBox(width: 8),
                     Image.asset(
                       'assets/imagensartista/ananda.png',
                       width: 115,
                       height: 115,
                       fit: BoxFit.cover,
                     ),
-                    const SizedBox(width: 10),
+                    const SizedBox(width: 8),
                     Image.asset(
                       'assets/imagensartista/livinho.png',
                       width: 115,
                       height: 115,
                       fit: BoxFit.cover,
                     ),
-                    const SizedBox(width: 10),
+                    const SizedBox(width: 8),
                     Image.asset(
                       'assets/imagensartista/AnaCastelo.png',
                       width: 115,
                       height: 115,
                       fit: BoxFit.cover,
                     ),
-                    const SizedBox(width: 10),
+                    const SizedBox(width: 8),
                     Image.asset(
                       'assets/imagensartista/ananda.png',
                       width: 115,
                       height: 115,
                       fit: BoxFit.cover,
                     ),
-                    const SizedBox(width: 10),
+                    const SizedBox(width: 8),
                     Image.asset(
                       'assets/imagensartista/livinho.png',
                       width: 115,
@@ -255,6 +262,7 @@ class HomeState extends State<Home> {
                 ),
               ),
             ),
+            const SizedBox(height: 16),
             Padding(
               padding: const EdgeInsets.only(left: 16.0),
               child: Text(
@@ -266,7 +274,7 @@ class HomeState extends State<Home> {
                 ),
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 4),
             Padding(
               padding: const EdgeInsets.only(left: 16.0),
               child: SingleChildScrollView(
@@ -279,35 +287,35 @@ class HomeState extends State<Home> {
                       height: 115,
                       fit: BoxFit.cover,
                     ),
-                    const SizedBox(width: 10),
+                    const SizedBox(width: 8),
                     Image.asset(
                       'assets/imagensmusica/BackToBlack.png',
                       width: 115,
                       height: 115,
                       fit: BoxFit.cover,
                     ),
-                    const SizedBox(width: 10),
+                    const SizedBox(width: 8),
                     Image.asset(
                       'assets/imagensmusica/ConeCrew.png',
                       width: 115,
                       height: 115,
                       fit: BoxFit.cover,
                     ),
-                    const SizedBox(width: 10),
+                    const SizedBox(width: 8),
                     Image.asset(
                       'assets/imagensmusica/livinho.png',
                       width: 115,
                       height: 115,
                       fit: BoxFit.cover,
                     ),
-                    const SizedBox(width: 10),
+                    const SizedBox(width: 8),
                     Image.asset(
                       'assets/imagensmusica/BackToBlack.png',
                       width: 115,
                       height: 115,
                       fit: BoxFit.cover,
                     ),
-                    const SizedBox(width: 10),
+                    const SizedBox(width: 8),
                     Image.asset(
                       'assets/imagensmusica/ConeCrew.png',
                       width: 115,
@@ -318,6 +326,7 @@ class HomeState extends State<Home> {
                 ),
               ),
             ),
+            const SizedBox(height: 16),
           ],
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Cadastro extends StatefulWidget {
   const Cadastro({super.key});
@@ -103,7 +104,7 @@ class CadastroState extends State<Cadastro> {
     );
   }
 
-  Widget botaoLogin() {
+  Widget botaoCadastro() {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         minimumSize: const Size(225, 40),
@@ -113,11 +114,7 @@ class CadastroState extends State<Cadastro> {
           borderRadius: BorderRadius.circular(25.0),
         ),
       ),
-      onPressed: () {
-        if (keyForms.currentState!.validate()) {
-          Navigator.of(context).pushNamed("/usuarios");
-        }
-      },
+      onPressed: _register,
       child: Text(
         "Cadastre-se",
         style: GoogleFonts.montserrat(
@@ -128,11 +125,53 @@ class CadastroState extends State<Cadastro> {
     );
   }
 
+  // Booleanos
   bool mostrarSenha = false;
   bool mostrarConfirmarSenha = false;
+
+  //Final
   final keyForms = GlobalKey<FormState>();
-  final confirmeSenhaController = TextEditingController();
-  final senhaController = TextEditingController();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController confirmeSenhaController = TextEditingController();
+  final TextEditingController senhaController = TextEditingController();
+
+  Future<void> _register() async {
+    if (keyForms.currentState!.validate()) {
+      try {
+        // Tenta criar o usuário com e-mail e senha
+        UserCredential userCredential =
+            await _auth.createUserWithEmailAndPassword(
+          email: _emailController.text.trim(),
+          password: confirmeSenhaController.text.trim(),
+        );
+
+        // Tenta atualizar o nome do usuário
+        await userCredential.user!
+            .updateDisplayName(_usernameController.text.trim());
+        await userCredential.user!.reload();
+        _auth.currentUser; // Recarrega o usuário atualizado
+
+        // Exibe uma notificação de sucesso e redireciona
+        _showSnackBar('Cadastro realizado com sucesso!', Colors.green);
+        Navigator.pop(context); // Volta para a tela de login após o cadastro
+      } catch (e) {
+        // Exibe uma notificação de erro específico
+        _showSnackBar('Erro no cadastro: ${e.toString()}', Colors.red);
+      }
+    }
+  }
+
+  void _showSnackBar(String message, Color color) {
+    final snackBar = SnackBar(
+      content: Text(message),
+      backgroundColor: color,
+      duration: Duration(seconds: 2),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
   Widget formulario() {
     return Form(
       key: keyForms,
@@ -143,8 +182,9 @@ class CadastroState extends State<Cadastro> {
               maxWidth: 285,
               minHeight: 60,
             ),
+            // Email
             child: TextFormField(
-              // Email
+              controller: _emailController,
               keyboardType: TextInputType.emailAddress,
               style: GoogleFonts.montserrat(
                   color: const Color.fromRGBO(0, 0, 0, 0.4),
@@ -180,11 +220,14 @@ class CadastroState extends State<Cadastro> {
           const SizedBox(
             height: 16,
           ),
-          SizedBox(
+          Container(
+            constraints: const BoxConstraints(
+              maxWidth: 285,
+              minHeight: 60,
+            ),
             // Usuario
-            width: 285,
-            height: 60,
-            child: TextField(
+            child: TextFormField(
+              controller: _usernameController,
               autofocus: true,
               style: GoogleFonts.montserrat(
                   color: const Color.fromRGBO(0, 0, 0, 0.4),
@@ -203,16 +246,25 @@ class CadastroState extends State<Cadastro> {
                   borderSide: BorderSide.none,
                 ),
               ),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Por favor, insira um nome de usuário';
+                }
+                return null;
+              },
             ),
           ),
           const SizedBox(
             height: 16,
           ),
-          SizedBox(
+          Container(
+            constraints: const BoxConstraints(
+              maxWidth: 285,
+              minHeight: 60,
+            ),
             // Senha
-            width: 285,
-            height: 60,
-            child: TextField(
+            child: TextFormField(
+              controller: senhaController,
               autofocus: true,
               obscureText: mostrarSenha == false ? true : false,
               style: GoogleFonts.montserrat(
@@ -223,11 +275,13 @@ class CadastroState extends State<Cadastro> {
               decoration: InputDecoration(
                 suffixIcon: GestureDetector(
                   child: Transform.scale(
-                    scale: 0.8,
-                    child: Icon(mostrarSenha == false
-                        ? Icons.visibility_off
-                        : Icons.visibility),
-                  ),
+                      scale: 0.8,
+                      child: Icon(
+                        mostrarSenha == false
+                            ? Icons.visibility_off
+                            : Icons.visibility,
+                        color: const Color.fromRGBO(72, 68, 78, 1),
+                      )),
                   onTap: () {
                     setState(() {
                       mostrarSenha = !mostrarSenha;
@@ -245,19 +299,27 @@ class CadastroState extends State<Cadastro> {
                   borderSide: BorderSide.none,
                 ),
               ),
-              controller: senhaController,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Por favor, insira uma senha';
+                } else if (value.length < 6) {
+                  return 'A senha deve ter pelo menos 6 caracteres';
+                }
+                return null;
+              },
             ),
           ),
           const SizedBox(
             height: 16,
           ),
           Container(
-            // Confirmar Senha
             constraints: const BoxConstraints(
               maxWidth: 285,
               minHeight: 60,
             ),
+            // Confirma Senha
             child: TextFormField(
+              controller: confirmeSenhaController,
               autofocus: true,
               obscureText: mostrarConfirmarSenha == false ? true : false,
               style: GoogleFonts.montserrat(
@@ -307,12 +369,12 @@ class CadastroState extends State<Cadastro> {
           const SizedBox(height: 20),
           iconesLogin(),
           const SizedBox(height: 12),
-          botaoLogin(),
+          botaoCadastro(),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              // Já tem uma Conta
               Text(
-                // Já tem uma Conta
                 "Já tem uma conta??",
                 style: GoogleFonts.montserrat(
                   color: const Color.fromRGBO(217, 217, 217, 1),
@@ -323,8 +385,8 @@ class CadastroState extends State<Cadastro> {
               const SizedBox(
                 width: 8,
               ),
+              // Faça login
               GestureDetector(
-                // Faça login
                 child: Text(
                   "Faça login",
                   style: GoogleFonts.montserrat(
