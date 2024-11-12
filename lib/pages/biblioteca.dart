@@ -163,20 +163,11 @@ class BibliotecaState extends State<Biblioteca> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
+        title: mimusicTitulo(),
         backgroundColor: Colors.transparent,
         elevation: 0,
         automaticallyImplyLeading: false,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            const PerfilImage(),
-            Expanded(
-              child: Center(
-                child: mimusicTitulo(),
-              ),
-            ),
-          ],
-        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -186,6 +177,20 @@ class BibliotecaState extends State<Biblioteca> {
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Column(
                 children: [
+                  Row(
+                    children: [
+                      const PerfilImage(),
+                      const SizedBox(width: 10),
+                      Text(
+                        "Seu Perfil",
+                        style: GoogleFonts.montserrat(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
+                  ),
                   const SizedBox(height: 20),
                   barra(),
                   albuns(),

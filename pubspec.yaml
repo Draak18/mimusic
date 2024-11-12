@@ -21,6 +21,7 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^5.0.0
   shared_preferences: ^2.0.0
+  flutter_launcher_icons: "^0.14.1"
 
 flutter:
   assets:
@@ -35,3 +36,10 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  image_path: "assets/icon/logoApp.jpg"
+  min_sdk_android: 23
+  adaptive_icon_background: "#111111"
+  adaptive_icon_foreground: "assets/icon/logoApp.jpg"
