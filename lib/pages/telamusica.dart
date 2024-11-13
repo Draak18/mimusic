@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mimusic/models/provedorMusicas.dart';
 
 class TelaMusica extends StatefulWidget {
   const TelaMusica({super.key});
@@ -9,11 +10,36 @@ class TelaMusica extends StatefulWidget {
 }
 
 class TelaMusicaState extends State<TelaMusica> {
+  Widget mimusicTitulo() {
+    return RichText(
+      text: TextSpan(
+        children: [
+          TextSpan(
+            text: "MI",
+            style: GoogleFonts.montserrat(
+              color: Colors.white,
+              fontSize: 24,
+              fontWeight: FontWeight.w800,
+            ),
+          ),
+          TextSpan(
+            text: "MUSIC",
+            style: GoogleFonts.montserrat(
+              color: const Color.fromRGBO(189, 0, 243, 1),
+              fontSize: 24,
+              fontWeight: FontWeight.w800,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: const Color.fromRGBO(17, 17, 17, 1),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           iconSize: 30,
@@ -21,11 +47,22 @@ class TelaMusicaState extends State<TelaMusica> {
             Navigator.pop(context);
           },
         ),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Expanded(
+              child: Center(
+                child: mimusicTitulo(),
+              ),
+            ),
+            const SizedBox(width: 48),
+          ],
+        ),
       ),
       body: Stack(
         children: [
           Container(
-            color: Colors.black,
+            color: const Color.fromRGBO(17, 17, 17, 1),
           ),
           SingleChildScrollView(
             child: Padding(
@@ -47,7 +84,7 @@ class TelaMusicaState extends State<TelaMusica> {
                   children: [
                     const SizedBox(height: 10),
                     Text(
-                      'Rainha da Pista',
+                      "audioIndex.songName",
                       style: GoogleFonts.poppins(
                         fontSize: 28,
                         fontWeight: FontWeight.bold,
@@ -57,7 +94,7 @@ class TelaMusicaState extends State<TelaMusica> {
                     ),
                     const SizedBox(height: 10),
                     Text(
-                      'Cone Crew Diretoria',
+                      "audioIndex.artistName",
                       style: GoogleFonts.poppins(
                         fontSize: 20,
                         color: Colors.white70,
@@ -66,17 +103,17 @@ class TelaMusicaState extends State<TelaMusica> {
                     ),
                     const SizedBox(height: 15),
                     Image.asset(
-                      "assets/imagensmusica/ConeCrew.png",
+                      "audioIndex.albumArtImagePath",
                       height: 275,
                       width: 275,
                     ),
                     const SizedBox(height: 5),
                     Slider(
-                      value: 0.50,
-                      onChanged: (value) {},
-                      activeColor: Colors.white,
-                      inactiveColor: Colors.white30,
-                    ),
+                        min: 0,
+                        max: 100,
+                        value: 50,
+                        activeColor: Colors.white,
+                        onChanged: (value) {}),
                     const SizedBox(height: 5),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
