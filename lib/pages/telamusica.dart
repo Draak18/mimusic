@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mimusic/models/provedorMusicas.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 class TelaMusica extends StatefulWidget {
   const TelaMusica({super.key});
@@ -10,6 +10,70 @@ class TelaMusica extends StatefulWidget {
 }
 
 class TelaMusicaState extends State<TelaMusica> {
+  final AudioPlayer _audioPlayer = AudioPlayer();
+  Duration _duration = Duration.zero;
+  Duration _position = Duration.zero;
+  bool _isPlaying = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _audioPlayer.onDurationChanged.listen((d) {
+      setState(() {
+        _duration = d;
+      });
+    });
+
+    _audioPlayer.onPositionChanged.listen((p) {
+      setState(() {
+        _position = p;
+      });
+    });
+
+    _audioPlayer.onPlayerStateChanged.listen((state) {
+      setState(() {
+        _isPlaying = state == PlayerState.playing;
+      });
+    });
+  }
+
+  @override
+  @override
+  void dispose() {
+    try {
+      if (_isPlaying) {
+        _audioPlayer.stop();
+      }
+      _audioPlayer.release();
+      _audioPlayer.dispose();
+    } catch (e) {
+      debugPrint("Erro ao liberar recursos do AudioPlayer: $e");
+    }
+    super.dispose();
+  }
+
+  String _formatDuration(Duration duration) {
+    return [duration.inMinutes, duration.inSeconds % 60]
+        .map((seg) => seg.toString().padLeft(2, '0'))
+        .join(':');
+  }
+
+  Future<void> _playAudioFromAsset(String path) async {
+    try {
+      await _audioPlayer.play(AssetSource(path));
+    } catch (e) {
+      debugPrint("Erro ao reproduzir o áudio do asset: $e");
+    }
+  }
+
+  Future<void> _pauseAudio() async {
+    await _audioPlayer.pause();
+  }
+
+  Future<void> _stopAudio() async {
+    await _audioPlayer.stop();
+  }
+
   Widget mimusicTitulo() {
     return RichText(
       text: TextSpan(
@@ -84,7 +148,7 @@ class TelaMusicaState extends State<TelaMusica> {
                   children: [
                     const SizedBox(height: 10),
                     Text(
-                      "audioIndex.songName",
+                      "Rainha da Pista",
                       style: GoogleFonts.poppins(
                         fontSize: 28,
                         fontWeight: FontWeight.bold,
@@ -94,7 +158,7 @@ class TelaMusicaState extends State<TelaMusica> {
                     ),
                     const SizedBox(height: 10),
                     Text(
-                      "audioIndex.artistName",
+                      "Cone Crew",
                       style: GoogleFonts.poppins(
                         fontSize: 20,
                         color: Colors.white70,
@@ -103,17 +167,47 @@ class TelaMusicaState extends State<TelaMusica> {
                     ),
                     const SizedBox(height: 15),
                     Image.asset(
-                      "audioIndex.albumArtImagePath",
+                      "assets/imagensmusica/ConeCrew.png",
                       height: 275,
                       width: 275,
                     ),
                     const SizedBox(height: 5),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 32.0) +
+                          const EdgeInsets.only(top: 16.0) +
+                          const EdgeInsets.symmetric(horizontal: 32.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            _formatDuration(_position),
+                            style: GoogleFonts.montserrat(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white70,
+                            ),
+                          ),
+                          Text(
+                            _formatDuration(_duration),
+                            style: GoogleFonts.montserrat(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white70,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                     Slider(
-                        min: 0,
-                        max: 100,
-                        value: 50,
-                        activeColor: Colors.white,
-                        onChanged: (value) {}),
+                      min: 0,
+                      max: _duration.inSeconds.toDouble(),
+                      value: _position.inSeconds.toDouble(),
+                      activeColor: Colors.white,
+                      onChanged: (value) async {
+                        await _audioPlayer
+                            .seek(Duration(seconds: value.toInt()));
+                      },
+                    ),
                     const SizedBox(height: 5),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -125,10 +219,19 @@ class TelaMusicaState extends State<TelaMusica> {
                           onPressed: () {},
                         ),
                         IconButton(
-                          icon: const Icon(Icons.play_arrow),
+                          icon: Icon(
+                            _isPlaying ? Icons.pause : Icons.play_arrow,
+                          ),
                           color: Colors.white,
                           iconSize: 42,
-                          onPressed: () {},
+                          onPressed: () async {
+                            if (_isPlaying) {
+                              await _pauseAudio();
+                            } else {
+                              await _playAudioFromAsset(
+                                  'musicas/rainhaDaPista.mp3');
+                            }
+                          },
                         ),
                         IconButton(
                           icon: const Icon(Icons.skip_next),
