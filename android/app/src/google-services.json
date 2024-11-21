@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "799667554572",
+    "project_id": "mimusic-4acee",
+    "storage_bucket": "mimusic-4acee.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799667554572:android:5d7d773f891e2e322aa129",
+        "android_client_info": {
+          "package_name": "mimusic.com.br.mimusic"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJ1yzw5ji8v34u9B2mj_cpuRRMT29X5BU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
