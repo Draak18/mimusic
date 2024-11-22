@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:mimusic/pages/usuarios.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -17,7 +18,7 @@ class LoginState extends State<Login> {
   @override
   void initState() {
     super.initState();
-    checkarLogin(); // Chame o método para verificar o status de login
+    checkarLogin();
   }
 
   // Método para verificar se o usuário deve ser mantido logado
@@ -133,8 +134,8 @@ class LoginState extends State<Login> {
         const SizedBox(width: 24),
         GestureDetector(
           // Icone Google
-          onTap: () {
-            Navigator.of(context).pushNamed("/usuarios");
+          onTap: () async {
+            await signInWithGoogle();
           },
           child: ClipOval(
             child: Container(
@@ -199,28 +200,48 @@ class LoginState extends State<Login> {
   bool mostrarSenha = false;
 
   //Final
+  final GoogleSignIn googleSignIn = GoogleSignIn();
+
+  Future<void> signInWithGoogle() async {
+    try {
+      final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
+      final GoogleSignInAuthentication? googleAuth =
+          await googleUser?.authentication;
+
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth?.accessToken,
+        idToken: googleAuth?.idToken,
+      );
+
+      await FirebaseAuth.instance.signInWithCredential(credential);
+
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setBool('manter_logado', true);
+
+      Navigator.of(context).pushNamed("/usuarios");
+    } catch (e) {
+      _showSnackBar('Erro ao fazer login com Google', Colors.red);
+      print(e);
+    }
+  }
+
   final keyForms = GlobalKey<FormState>();
-  final FirebaseAuth _auth =
-      FirebaseAuth.instance; // Instância do FirebaseAuth para autenticação
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   final TextEditingController _emailController =
       TextEditingController(); // Controlador para o campo de e-mail
   final TextEditingController _passwordController =
       TextEditingController(); // Controlador para o campo de senha
 
-// Método assíncrono para realizar o login
   Future<void> _login() async {
     try {
-      // Tenta fazer login com e-mail e senha fornecidos
       await _auth.signInWithEmailAndPassword(
         email: _emailController.text,
         password: _passwordController.text,
       );
 
-      // Salvar a preferência de manter-me logado
       SharedPreferences prefs = await SharedPreferences.getInstance();
       await prefs.setBool('manter_logado', caixaMarcada);
 
-      // Se o login for bem-sucedido, navega para a tela inicial
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -228,12 +249,10 @@ class LoginState extends State<Login> {
         ),
       );
     } catch (e) {
-      // Em caso de erro, exibe uma notificação com a mensagem de erro
       _showSnackBar('Erro no login', Colors.red);
     }
   }
 
-  // Método para exibir uma mensagem na parte inferior da tela (SnackBar)
   void _showSnackBar(String message, Color color) {
     final snackBar = SnackBar(
       content: Text(message),
