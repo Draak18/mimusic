@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.purple,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        initialRoute: '/resultado',
+        initialRoute: '/',
         routes: {
           '/': (context) => const HomePage(),
           '/cadastro': (context) => const Cadastro(),
