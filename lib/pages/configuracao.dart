@@ -344,22 +344,28 @@ class _ConfiguracaoState extends State<Configuracao> {
     );
   }
 
+  Widget seta() {
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).pushNamed("/");
+      },
+      child: Image.asset(
+        'assets/images/arrow.png',
+        width: 50,
+        height: 50,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(17, 17, 17, 1),
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(35, 35, 35, 1),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back,
-              color: const Color.fromRGBO(217, 217, 217, 1)),
-          iconSize: 30,
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
+        leading: seta(),
         title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
               'Configurações',
@@ -375,13 +381,13 @@ class _ConfiguracaoState extends State<Configuracao> {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(
-              top: 37, left: 16.0, right: 16.0, bottom: 16.0),
+              top: 24, left: 16.0, right: 16.0, bottom: 16.0),
           child: Column(
             children: [
-              SizedBox(
-                height: 8,
-              ),
               Informacao(),
+              SizedBox(
+                height: 16,
+              ),
               botao(),
             ],
           ),

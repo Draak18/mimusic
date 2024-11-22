@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.purple,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        initialRoute: '/',
+        initialRoute: '/splashscreen',
         routes: {
           '/': (context) => const HomePage(),
           '/cadastro': (context) => const Cadastro(),
