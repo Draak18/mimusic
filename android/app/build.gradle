@@ -55,4 +55,6 @@ dependencies {
     // Outras dependências do Firebase, caso necessário
     implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.firebase:firebase-firestore'
+    implementation 'androidx.appcompat:appcompat:1.4.0'
+    
 }

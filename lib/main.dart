@@ -6,6 +6,7 @@ import 'package:mimusic/pages/cadastro.dart';
 import 'package:mimusic/pages/configuracao.dart';
 import 'package:mimusic/pages/home_page.dart';
 import 'package:mimusic/pages/login.dart';
+import 'package:mimusic/pages/splash.dart';
 import 'package:mimusic/pages/resultado.dart';
 import 'package:mimusic/pages/telamusica.dart';
 import 'package:mimusic/pages/usuario.dart';
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
           '/usuarios': (context) => const Usuarios(),
           '/usuario': (context) => const Usuario(),
           '/telamusica': (context) => const TelaMusica(),
+          '/splashscreen': (context) => const SplashScreen(),
           '/configuracao': (context) => const Configuracao(),
           '/resultado': (context) => const Resultado(),
         },
