@@ -5,6 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:mimusic/pages/cadastro.dart';
 import 'package:mimusic/pages/home_page.dart';
 import 'package:mimusic/pages/login.dart';
+import 'package:mimusic/pages/splash.dart';
 import 'package:mimusic/pages/telamusica.dart';
 import 'package:mimusic/pages/usuario.dart';
 import 'package:mimusic/pages/usuarios.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.purple,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        initialRoute: '/login',
+        initialRoute: '/splashscreen',
         routes: {
           '/': (context) => const HomePage(),
           '/cadastro': (context) => const Cadastro(),
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
           '/usuarios': (context) => const Usuarios(),
           '/usuario': (context) => const Usuario(),
           '/telamusica': (context) => const TelaMusica(),
+          '/splashscreen': (context) => const SplashScreen(),
         },
         debugShowCheckedModeBanner: false);
   }
