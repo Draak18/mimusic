@@ -445,7 +445,7 @@ class UsuarioState extends State<Usuario> {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(
-            top: 24,
+            top: 8,
             left: 10.0,
             right: 16.0,
             bottom: 16.0,
