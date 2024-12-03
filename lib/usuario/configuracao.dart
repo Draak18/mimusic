@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -9,31 +10,6 @@ class Configuracao extends StatefulWidget {
 }
 
 class _ConfiguracaoState extends State<Configuracao> {
-  Widget mimusicTitulo() {
-    return RichText(
-      text: TextSpan(
-        children: [
-          TextSpan(
-            text: "MI",
-            style: GoogleFonts.montserrat(
-              color: Colors.white,
-              fontSize: 24,
-              fontWeight: FontWeight.w800,
-            ),
-          ),
-          TextSpan(
-            text: "MUSIC",
-            style: GoogleFonts.montserrat(
-              color: const Color.fromRGBO(189, 0, 243, 1),
-              fontSize: 24,
-              fontWeight: FontWeight.w800,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
   Widget Informacao() {
     return Column(
       children: [
@@ -53,7 +29,7 @@ class _ConfiguracaoState extends State<Configuracao> {
                   style: GoogleFonts.montserrat(
                     color: const Color.fromARGB(255, 255, 255, 255),
                     fontSize: 12.0,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
                 Text(
@@ -61,7 +37,7 @@ class _ConfiguracaoState extends State<Configuracao> {
                   style: GoogleFonts.montserrat(
                     color: const Color.fromARGB(255, 255, 255, 255),
                     fontSize: 12.0,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ],
@@ -85,7 +61,7 @@ class _ConfiguracaoState extends State<Configuracao> {
                   style: GoogleFonts.montserrat(
                     color: const Color.fromARGB(255, 255, 255, 255),
                     fontSize: 12.0,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
                 Text(
@@ -93,7 +69,7 @@ class _ConfiguracaoState extends State<Configuracao> {
                   style: GoogleFonts.montserrat(
                     color: const Color.fromARGB(255, 255, 255, 255),
                     fontSize: 12.0,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ],
@@ -117,7 +93,7 @@ class _ConfiguracaoState extends State<Configuracao> {
                   style: GoogleFonts.montserrat(
                     color: const Color.fromARGB(255, 255, 255, 255),
                     fontSize: 12.0,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
                 Text(
@@ -125,7 +101,7 @@ class _ConfiguracaoState extends State<Configuracao> {
                   style: GoogleFonts.montserrat(
                     color: const Color.fromARGB(255, 255, 255, 255),
                     fontSize: 12.0,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ],
@@ -149,7 +125,7 @@ class _ConfiguracaoState extends State<Configuracao> {
                   style: GoogleFonts.montserrat(
                     color: const Color.fromARGB(255, 255, 255, 255),
                     fontSize: 12.0,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
                 Text(
@@ -157,7 +133,7 @@ class _ConfiguracaoState extends State<Configuracao> {
                   style: GoogleFonts.montserrat(
                     color: const Color.fromARGB(255, 255, 255, 255),
                     fontSize: 12.0,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ],
@@ -181,7 +157,7 @@ class _ConfiguracaoState extends State<Configuracao> {
                   style: GoogleFonts.montserrat(
                     color: const Color.fromARGB(255, 255, 255, 255),
                     fontSize: 12.0,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
                 Text(
@@ -189,7 +165,7 @@ class _ConfiguracaoState extends State<Configuracao> {
                   style: GoogleFonts.montserrat(
                     color: const Color.fromARGB(255, 255, 255, 255),
                     fontSize: 12.0,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ],
@@ -213,7 +189,7 @@ class _ConfiguracaoState extends State<Configuracao> {
                   style: GoogleFonts.montserrat(
                     color: const Color.fromARGB(255, 255, 255, 255),
                     fontSize: 12.0,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
                 Text(
@@ -221,7 +197,7 @@ class _ConfiguracaoState extends State<Configuracao> {
                   style: GoogleFonts.montserrat(
                     color: const Color.fromARGB(255, 255, 255, 255),
                     fontSize: 12.0,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ],
@@ -245,7 +221,7 @@ class _ConfiguracaoState extends State<Configuracao> {
                   style: GoogleFonts.montserrat(
                     color: const Color.fromARGB(255, 255, 255, 255),
                     fontSize: 12.0,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
                 Text(
@@ -253,7 +229,7 @@ class _ConfiguracaoState extends State<Configuracao> {
                   style: GoogleFonts.montserrat(
                     color: const Color.fromARGB(255, 255, 255, 255),
                     fontSize: 12.0,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ],
@@ -277,7 +253,7 @@ class _ConfiguracaoState extends State<Configuracao> {
                   style: GoogleFonts.montserrat(
                     color: const Color.fromARGB(255, 255, 255, 255),
                     fontSize: 12.0,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
                 Text(
@@ -285,7 +261,7 @@ class _ConfiguracaoState extends State<Configuracao> {
                   style: GoogleFonts.montserrat(
                     color: const Color.fromARGB(255, 255, 255, 255),
                     fontSize: 12.0,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ],
@@ -309,7 +285,7 @@ class _ConfiguracaoState extends State<Configuracao> {
                   style: GoogleFonts.montserrat(
                     color: const Color.fromARGB(255, 255, 255, 255),
                     fontSize: 12.0,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
                 Text(
@@ -317,7 +293,7 @@ class _ConfiguracaoState extends State<Configuracao> {
                   style: GoogleFonts.montserrat(
                     color: const Color.fromARGB(255, 255, 255, 255),
                     fontSize: 12.0,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ],
@@ -331,32 +307,52 @@ class _ConfiguracaoState extends State<Configuracao> {
   Widget botao() {
     return Center(
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center, // Alinhamento centralizado da linha
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               minimumSize: const Size(112, 24),
               backgroundColor: Color(0xFF791BE3),
-              foregroundColor: Colors.white,
+              foregroundColor: const Color.fromRGBO(217, 217, 217, 1),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8.0),
                 side: const BorderSide(
-                  color: Colors.black,
+                  color: Color.fromARGB(255, 26, 26, 26),
                   width: 1.0,
                 ),
               ),
             ),
-            onPressed: () {
-              Navigator.of(context).pushNamed("/");// Exemplo de ação
+            onPressed: () async {
+              try {
+                await FirebaseAuth.instance.signOut();
+
+                Navigator.of(context).pushNamed("/login");
+              } catch (e) {
+                print("Erro ao deslogar: $e");
+              }
             },
-            child: Text('Sair',
+            child: Text(
+              'Sair',
               style: GoogleFonts.montserrat(
-                    color: const Color.fromARGB(255, 255, 255, 255),
-                    fontSize: 16.0,
-                    ),
-             ), // Texto do botão
+                color: const Color.fromARGB(255, 255, 255, 255),
+                fontSize: 16.0,
+              ),
+            ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget seta() {
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).pushNamed("/");
+      },
+      child: Image.asset(
+        'assets/images/arrow.png',
+        width: 50,
+        height: 50,
       ),
     );
   }
@@ -364,41 +360,34 @@ class _ConfiguracaoState extends State<Configuracao> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: const Color.fromRGBO(17, 17, 17, 1),
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(37, 30, 17, 1),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          iconSize: 30,
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
+        backgroundColor: const Color.fromRGBO(35, 35, 35, 1),
+        leading: seta(),
         title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
               'Configurações',
               style: GoogleFonts.montserrat(
                 color: const Color.fromARGB(255, 255, 255, 255),
                 fontSize: 24,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w500,
               ),
             ),
-            // Adicione o segundo widget aqui, se necessário
           ],
         ),
       ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(
-              top: 37, left: 16.0, right: 16.0, bottom: 16.0),
+              top: 24, left: 16.0, right: 16.0, bottom: 16.0),
           child: Column(
             children: [
-              SizedBox(
-                height: 8,
-              ),
               Informacao(),
+              SizedBox(
+                height: 16,
+              ),
               botao(),
             ],
           ),

@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 // Páginas importadas
-import 'package:mimusic/pages/cadastro.dart';
-import 'package:mimusic/pages/configuracao.dart';
+import 'package:mimusic/login/cadastro.dart';
+import 'package:mimusic/usuario/configuracao.dart';
 import 'package:mimusic/pages/home_page.dart';
-import 'package:mimusic/pages/login.dart';
+import 'package:mimusic/login/login.dart';
 import 'package:mimusic/pages/splash.dart';
 import 'package:mimusic/pages/resultado.dart';
 import 'package:mimusic/pages/telamusica.dart';
-import 'package:mimusic/pages/usuario.dart';
-import 'package:mimusic/pages/usuarios.dart';
+import 'package:mimusic/usuario/usuario.dart';
+import 'package:mimusic/login/usuarios.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

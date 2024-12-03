@@ -116,7 +116,7 @@ class UsuarioState extends State<Usuario> {
         style: ElevatedButton.styleFrom(
           minimumSize: const Size(74, 22),
           maximumSize: const Size(74, 22),
-          backgroundColor: Colors.black,
+          backgroundColor: const Color.fromRGBO(17, 17, 17, 1),
           foregroundColor: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(25.0),
@@ -141,7 +141,7 @@ class UsuarioState extends State<Usuario> {
   Widget botao2() {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).pushNamed("/");
+        Navigator.of(context).pushNamed("/configuracao");
       },
       child: Image.asset(
         'assets/images/cardapio.png',
@@ -441,11 +441,11 @@ class UsuarioState extends State<Usuario> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: const Color.fromRGBO(17, 17, 17, 1),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(
-            top: 37,
+            top: 8,
             left: 10.0,
             right: 16.0,
             bottom: 16.0,

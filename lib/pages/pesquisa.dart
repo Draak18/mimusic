@@ -1673,7 +1673,7 @@ class PesquisaState extends State<Pesquisa> {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(
-              top: 37, left: 16.0, right: 16.0, bottom: 16.0),
+              top: 16, left: 16.0, right: 16.0, bottom: 16.0),
           child: Column(children: [
             const SizedBox(height: 24),
             texto(),
