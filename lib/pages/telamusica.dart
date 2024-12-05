@@ -1,103 +1,156 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class TelaMusica extends StatefulWidget {
-  const TelaMusica({super.key});
+  final Map<String, dynamic> musica;
+
+  const TelaMusica({super.key, required this.musica});
 
   @override
-  State<TelaMusica> createState() => TelaMusicaState();
+  State<TelaMusica> createState() => _TelaMusicaState();
 }
 
-class TelaMusicaState extends State<TelaMusica> {
-  final CollectionReference _musicas =
-      FirebaseFirestore.instance.collection('musicas');
+class _TelaMusicaState extends State<TelaMusica> {
+  late YoutubePlayerController _youtubeController;
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "MiMusic",
-          style: GoogleFonts.montserrat(color: Colors.white),
-        ),
-        backgroundColor: Colors.purple,
-      ),
-      body: FutureBuilder<QuerySnapshot>(
-        future: _musicas.get(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (snapshot.hasError) {
-            return Center(
-                child: Text("Erro ao carregar músicas: ${snapshot.error}"));
-          } else if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-            return const Center(child: Text("Nenhuma música encontrada."));
-          }
+  void initState() {
+    super.initState();
 
-          final musicas = snapshot.data!.docs;
-
-          return ListView.builder(
-            itemCount: musicas.length,
-            itemBuilder: (context, index) {
-              final musica = musicas[index].data() as Map<String, dynamic>;
-              return ListTile(
-                leading: Image.network(
-                  musica['imagem'],
-                  width: 50,
-                  height: 50,
-                  fit: BoxFit.cover,
-                ),
-                title: Text(
-                  musica['title'],
-                  style: GoogleFonts.montserrat(fontWeight: FontWeight.bold),
-                ),
-                subtitle: Text(musica['artista']),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => DetalheMusica(musica: musica),
-                    ),
-                  );
-                },
-              );
-            },
-          );
-        },
+    // Inicializar o controlador do YouTube
+    _youtubeController = YoutubePlayerController(
+      initialVideoId: YoutubePlayer.convertUrlToId(widget.musica['audio'])!,
+      flags: const YoutubePlayerFlags(
+        autoPlay: false, // Não reproduz automaticamente
+        mute: false,
       ),
     );
   }
-}
 
-class DetalheMusica extends StatelessWidget {
-  final Map<String, dynamic> musica;
+  @override
+  void dispose() {
+    _youtubeController.dispose(); // Liberar o controlador ao sair da tela
+    super.dispose();
+  }
 
-  const DetalheMusica({super.key, required this.musica});
+  void _togglePlayPause() {
+    if (_youtubeController.value.isPlaying) {
+      _youtubeController.pause();
+    } else {
+      _youtubeController.play();
+    }
+    setState(() {}); // Atualiza o estado para refletir a mudança
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(musica['title'], style: GoogleFonts.montserrat()),
-        backgroundColor: Colors.purple,
+        backgroundColor: Colors.black,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () => Navigator.pop(context),
+        ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      body: Container(
+        color: Colors.black,
         child: Column(
           children: [
-            Image.network(musica['imagem'], height: 200),
-            const SizedBox(height: 16),
-            Text(
-              musica['artista'],
-              style: GoogleFonts.montserrat(
-                  fontSize: 24, fontWeight: FontWeight.bold),
+            // Título e artista
+            Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.purple.shade800, Colors.purple.shade400],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20),
+                ),
+              ),
+              child: Column(
+                children: [
+                  Text(
+                    widget.musica['title'],
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    widget.musica['artista'],
+                    style: GoogleFonts.poppins(
+                      color: Colors.white70,
+                      fontSize: 18,
+                    ),
+                  ),
+                ],
+              ),
             ),
             const SizedBox(height: 16),
-            Text(
-              musica['letra'],
-              style: GoogleFonts.montserrat(fontSize: 16),
-              textAlign: TextAlign.center,
+            
+            Image.network(
+              widget.musica['imagem'], // Substitua pelo URL ou caminho da imagem
+              width: 300, // Ajuste conforme necessário
+              height: 300, // Ajuste conforme necessário
+              fit:BoxFit.cover, // Define como a imagem se ajustará ao container
+            ),
+            const SizedBox(height: 16),
+            Center(
+              child: AnimatedSwitcher(
+                duration: const Duration(milliseconds: 300),
+                child: IconButton(
+                  key: ValueKey<bool>(_youtubeController.value.isPlaying),
+                  icon: Icon(
+                    _youtubeController.value.isPlaying
+                        ? Icons.pause
+                        : Icons.play_arrow,
+                    color: Colors.white,
+                    size: 36,
+                  ),
+                  onPressed: _togglePlayPause,
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+
+            // Player de vídeo do YouTube (invisível)
+            SizedBox(
+              height: 0, // Altura zero para ocultar o player
+              child: YoutubePlayer(
+                controller: _youtubeController,
+                showVideoProgressIndicator:
+                    false, // Não mostrar o indicador de progresso
+                progressIndicatorColor: Colors.purple,
+                aspectRatio: 16 / 9, // Usar um aspecto válido
+              ),
+            ),
+            const SizedBox(height: 16),
+
+            // Texto da música
+            Expanded(
+              child: Container(
+                padding: const EdgeInsets.all(16),
+                margin: const EdgeInsets.symmetric(horizontal: 16),
+                decoration: BoxDecoration(
+                  color: Colors.purple.shade800,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: SingleChildScrollView(
+                  child: Text(
+                    widget.musica['letra'] ?? "Letra não disponível.",
+                    style: GoogleFonts.poppins(
+                      fontSize: 16,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
             ),
           ],
         ),

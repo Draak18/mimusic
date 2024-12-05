@@ -84,14 +84,25 @@ class HomeState extends State<Home> {
                   children: items.map((item) {
                     final data = item.data() as Map<String, dynamic>;
                     return GestureDetector(
-                      onTap: () {
+                    onTap: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => DetalheMusica(musica: data),
+                            builder: (context) => TelaMusica(
+                              musica: {
+                                'title': data['title'],
+                                'artista': data['artista'],
+                                'imagem': data['imagem'],
+                                'audio':
+                                    data['audio'], // URL do vídeo do YouTube
+                                'letra': data[
+                                    'letra'], // Letra da música, se disponível
+                              },
+                            ),
                           ),
                         );
                       },
+
                       child: Padding(
                         padding: const EdgeInsets.only(right: 8.0),
                         child: Column(
@@ -102,6 +113,7 @@ class HomeState extends State<Home> {
                               height: 115,
                               fit: BoxFit.cover,
                             ),
+                            const SizedBox(height: 8),
                           ],
                         ),
                       ),
@@ -149,17 +161,11 @@ class HomeState extends State<Home> {
             ),
             // Exibe as músicas
             buildItemList(_mundiais, "Suas Faixas"),
-
-            SizedBox(height: 16),
-
+            const SizedBox(height: 16),
             buildItemList(_podcasts, "PodCasts"),
-
-            SizedBox(height: 16),
-
+            const SizedBox(height: 16),
             buildItemList(_populares, "Artistas Populares"),
-
-            SizedBox(height: 16),
-
+            const SizedBox(height: 16),
             buildItemList(_mundiais, "Top Mundiais"),
           ],
         ),
