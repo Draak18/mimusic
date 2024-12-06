@@ -44,7 +44,8 @@ class HomeState extends State<Home> {
     );
   }
 
-  Widget buildItemList(CollectionReference collection, String title) {
+  Widget buildItemList(
+      CollectionReference collection, String title, String colecao) {
     return Padding(
       padding: const EdgeInsets.only(left: 16.0),
       child: Column(
@@ -84,7 +85,7 @@ class HomeState extends State<Home> {
                   children: items.map((item) {
                     final data = item.data() as Map<String, dynamic>;
                     return GestureDetector(
-                    onTap: () {
+                      onTap: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -93,16 +94,14 @@ class HomeState extends State<Home> {
                                 'title': data['title'],
                                 'artista': data['artista'],
                                 'imagem': data['imagem'],
-                                'audio':
-                                    data['audio'], // URL do vídeo do YouTube
-                                'letra': data[
-                                    'letra'], // Letra da música, se disponível
+                                'audio': data['audio'],
+                                'letra': data['letra'],
                               },
+                              colecao: colecao, // Passando o nome da coleção
                             ),
                           ),
                         );
                       },
-
                       child: Padding(
                         padding: const EdgeInsets.only(right: 8.0),
                         child: Column(
@@ -160,13 +159,13 @@ class HomeState extends State<Home> {
               ),
             ),
             // Exibe as músicas
-            buildItemList(_mundiais, "Suas Faixas"),
+            buildItemList(_mundiais, "Suas Faixas", "mundiais"),
             const SizedBox(height: 16),
-            buildItemList(_podcasts, "PodCasts"),
+            buildItemList(_podcasts, "PodCasts", "podcast"),
             const SizedBox(height: 16),
-            buildItemList(_populares, "Artistas Populares"),
+            buildItemList(_populares, "Artistas Populares", "populares"),
             const SizedBox(height: 16),
-            buildItemList(_mundiais, "Top Mundiais"),
+            buildItemList(_mundiais, "Top Mundiais", "mundiais"),
           ],
         ),
       ),

@@ -4,8 +4,9 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class TelaMusica extends StatefulWidget {
   final Map<String, dynamic> musica;
+  final String colecao; // Adicionado para receber a coleção do Firebase
 
-  const TelaMusica({super.key, required this.musica});
+  const TelaMusica({super.key, required this.musica, required this.colecao});
 
   @override
   State<TelaMusica> createState() => _TelaMusicaState();
@@ -28,10 +29,10 @@ class _TelaMusicaState extends State<TelaMusica> {
     _youtubeController = YoutubePlayerController(
       initialVideoId: videoId,
       flags: const YoutubePlayerFlags(
-        autoPlay: true, // Vídeo começa automaticamente
-        mute: false, // Áudio ativado
-        hideControls: true, // Controles ocultos
-        showLiveFullscreenButton: false, // Remover o botão de tela cheia
+        autoPlay: true,
+        mute: false,
+        hideControls: true,
+        showLiveFullscreenButton: false,
       ),
     );
   }
@@ -53,6 +54,11 @@ class _TelaMusicaState extends State<TelaMusica> {
 
   @override
   Widget build(BuildContext context) {
+    // Verifica o tipo de coleção para determinar se é um podcast
+    final bool isPodcast = widget.colecao == 'podcast';
+    print('É um podcast? $isPodcast');
+    print('Coleção recebida: ${widget.colecao}');
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(17, 17, 17, 1),
@@ -61,7 +67,6 @@ class _TelaMusicaState extends State<TelaMusica> {
           onPressed: () => Navigator.pop(context),
         ),
         title: Center(
-          // Centralizando o título
           child: RichText(
             text: TextSpan(
               children: [
@@ -139,10 +144,9 @@ class _TelaMusicaState extends State<TelaMusica> {
                   height: 0, // Player escondido
                   child: YoutubePlayer(
                     controller: _youtubeController,
-                    showVideoProgressIndicator: false, // Não exibe o progresso
+                    showVideoProgressIndicator: false,
                     progressIndicatorColor: Colors.purple,
-                    aspectRatio:
-                        16 / 9, // Não é relevante, mas mantém a consistência
+                    aspectRatio: 16 / 9,
                   ),
                 ),
 
@@ -161,8 +165,8 @@ class _TelaMusicaState extends State<TelaMusica> {
                     IconButton(
                       icon: Icon(
                         _youtubeController.value.isPlaying
-                            ? Icons.play_arrow // Ícone de pause
-                            : Icons.pause, // Ícone de play
+                            ? Icons.play_arrow
+                            : Icons.pause,
                         color: Colors.white,
                         size: 42,
                       ),
@@ -180,15 +184,15 @@ class _TelaMusicaState extends State<TelaMusica> {
                 ),
                 const SizedBox(height: 16),
 
-                // Texto da música
-                Container(
-                  padding: const EdgeInsets.all(16),
-                  margin: const EdgeInsets.symmetric(horizontal: 16),
-                  decoration: BoxDecoration(
-                    color: const Color(0xFF3E2941),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: SingleChildScrollView(
+                // Texto da música (somente se não for podcast)
+                if (!isPodcast)
+                  Container(
+                    padding: const EdgeInsets.all(16),
+                    margin: const EdgeInsets.symmetric(horizontal: 16),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF3E2941),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                     child: Text(
                       widget.musica['letra'] ?? "Letra não disponível.",
                       style: GoogleFonts.poppins(
@@ -198,8 +202,7 @@ class _TelaMusicaState extends State<TelaMusica> {
                       textAlign: TextAlign.center,
                     ),
                   ),
-                ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 145),
               ],
             ),
           ),

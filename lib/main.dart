@@ -36,9 +36,14 @@ class MyApp extends StatelessWidget {
         // Gerenciamento dinâmico da tela TelaMusica
         if (settings.name == '/telamusica') {
           final args = settings.arguments as Map<String, dynamic>?;
-          if (args != null && args.containsKey('musica')) {
+          if (args != null &&
+              args.containsKey('musica') &&
+              args.containsKey('colecao')) {
             return MaterialPageRoute(
-              builder: (context) => TelaMusica(musica: args['musica']),
+              builder: (context) => TelaMusica(
+                musica: args['musica'],
+                colecao: args['colecao'], // Adiciona a coleção
+              ),
             );
           }
         }
