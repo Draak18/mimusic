@@ -31,6 +31,7 @@ class MyApp extends StatelessWidget {
         '/login': (context) => const Login(),
         '/usuarios': (context) => const Usuarios(),
         '/usuario': (context) => const Usuario(),
+        
       },
       onGenerateRoute: (settings) {
         // Gerenciamento dinâmico da tela TelaMusica
