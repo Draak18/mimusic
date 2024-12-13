@@ -24,23 +24,42 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'MiMusic',
-        theme: ThemeData(
-          primarySwatch: Colors.purple,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
-        initialRoute: '/splashscreen',
-        routes: {
-          '/': (context) => const HomePage(),
-          '/cadastro': (context) => const Cadastro(),
-          '/login': (context) => const Login(),
-          '/usuarios': (context) => const Usuarios(),
-          '/usuario': (context) => const Usuario(),
-          '/telamusica': (context) => const TelaMusica(),
-          '/splashscreen': (context) => const SplashScreen(),
-          '/configuracao': (context) => const Configuracao(),
-          '/resultado': (context) => const Resultado(),
-        },
-        debugShowCheckedModeBanner: false);
+      title: 'MiMusic',
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      initialRoute: '/splashscreen',
+      routes: {
+        '/': (context) => const HomePage(),
+        '/cadastro': (context) => const Cadastro(),
+        '/login': (context) => const Login(),
+        '/usuarios': (context) => const Usuarios(),
+        '/usuario': (context) => const Usuario(),
+        '/splashscreen': (context) => const SplashScreen(),
+        '/configuracao': (context) => const Configuracao(),
+        '/resultado': (context) => const Resultado(),
+        
+      },
+      onGenerateRoute: (settings) {
+        // Gerenciamento dinâmico da tela TelaMusica
+        if (settings.name == '/telamusica') {
+          final args = settings.arguments as Map<String, dynamic>?;
+          if (args != null &&
+              args.containsKey('musica') &&
+              args.containsKey('colecao')) {
+            return MaterialPageRoute(
+              builder: (context) => TelaMusica(
+                musica: args['musica'],
+                colecao: args['colecao'], // Adiciona a coleção
+              ),
+            );
+          }
+        }
+        // Retorna null caso a rota não seja encontrada
+        return null;
+      },
+      debugShowCheckedModeBanner: false,
+    );
   }
 }

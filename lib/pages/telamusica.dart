@@ -1,305 +1,212 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:audioplayers/audioplayers.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class TelaMusica extends StatefulWidget {
-  const TelaMusica({super.key});
+  final Map<String, dynamic> musica;
+  final String colecao; // Adicionado para receber a coleção do Firebase
+
+  const TelaMusica({super.key, required this.musica, required this.colecao});
 
   @override
-  State<TelaMusica> createState() => TelaMusicaState();
+  State<TelaMusica> createState() => _TelaMusicaState();
 }
 
-class TelaMusicaState extends State<TelaMusica> {
-  final AudioPlayer _audioPlayer = AudioPlayer();
-  Duration _duration = Duration.zero;
-  Duration _position = Duration.zero;
-  bool _isPlaying = false;
+class _TelaMusicaState extends State<TelaMusica> {
+  late YoutubePlayerController _youtubeController;
 
   @override
   void initState() {
     super.initState();
-    _audioPlayer.onDurationChanged.listen((d) {
-      setState(() {
-        _duration = d;
-      });
-    });
 
-    _audioPlayer.onPositionChanged.listen((p) {
-      setState(() {
-        _position = p;
-      });
-    });
-
-    _audioPlayer.onPlayerStateChanged.listen((state) {
-      setState(() {
-        _isPlaying = state == PlayerState.playing;
-      });
-    });
-  }
-
-  @override
-  @override
-  void dispose() {
-    try {
-      if (_isPlaying) {
-        _audioPlayer.stop();
-      }
-      _audioPlayer.release();
-      _audioPlayer.dispose();
-    } catch (e) {
-      debugPrint("Erro ao liberar recursos do AudioPlayer: $e");
+    // Inicializar o controlador do YouTube
+    String? videoId = YoutubePlayer.convertUrlToId(widget.musica['audio']);
+    if (videoId == null) {
+      debugPrint('URL do vídeo inválida: ${widget.musica['audio']}');
+      return;
     }
-    super.dispose();
-  }
 
-  String _formatDuration(Duration duration) {
-    return [duration.inMinutes, duration.inSeconds % 60]
-        .map((seg) => seg.toString().padLeft(2, '0'))
-        .join(':');
-  }
-
-  Future<void> _playAudioFromAsset(String path) async {
-    try {
-      await _audioPlayer.play(AssetSource(path));
-    } catch (e) {
-      debugPrint("Erro ao reproduzir o áudio do asset: $e");
-    }
-  }
-
-  Future<void> _pauseAudio() async {
-    await _audioPlayer.pause();
-  }
-
-  Future<void> _stopAudio() async {
-    await _audioPlayer.stop();
-  }
-
-  Widget mimusicTitulo() {
-    return RichText(
-      text: TextSpan(
-        children: [
-          TextSpan(
-            text: "MI",
-            style: GoogleFonts.montserrat(
-              color: Colors.white,
-              fontSize: 24,
-              fontWeight: FontWeight.w800,
-            ),
-          ),
-          TextSpan(
-            text: "MUSIC",
-            style: GoogleFonts.montserrat(
-              color: const Color.fromRGBO(189, 0, 243, 1),
-              fontSize: 24,
-              fontWeight: FontWeight.w800,
-            ),
-          ),
-        ],
+    _youtubeController = YoutubePlayerController(
+      initialVideoId: videoId,
+      flags: const YoutubePlayerFlags(
+        autoPlay: true,
+        mute: false,
+        hideControls: true,
+        showLiveFullscreenButton: false,
       ),
     );
   }
 
   @override
+  void dispose() {
+    _youtubeController.dispose();
+    super.dispose();
+  }
+
+  void _togglePlayPause() {
+    if (_youtubeController.value.isPlaying) {
+      _youtubeController.pause();
+    } else {
+      _youtubeController.play();
+    }
+    setState(() {});
+  }
+
+  @override
   Widget build(BuildContext context) {
+    // Verifica o tipo de coleção para determinar se é um podcast
+    final bool isPodcast = widget.colecao == 'podcast';
+    print('É um podcast? $isPodcast');
+    print('Coleção recebida: ${widget.colecao}');
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(17, 17, 17, 1),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
-          iconSize: 30,
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          onPressed: () => Navigator.pop(context),
         ),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Expanded(
-              child: Center(
-                child: mimusicTitulo(),
-              ),
+        title: Center(
+          child: RichText(
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: "MI",
+                  style: GoogleFonts.montserrat(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+                TextSpan(
+                  text: "MUSIC",
+                  style: GoogleFonts.montserrat(
+                    color: const Color.fromRGBO(189, 0, 243, 1),
+                    fontSize: 24,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(width: 48),
-          ],
+          ),
         ),
       ),
-      body: Stack(
-        children: [
-          Container(
-            color: const Color.fromRGBO(17, 17, 17, 1),
-          ),
-          SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-              child: Container(
-                decoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment(0.0, 0.9),
-                    colors: [
-                      Color(0xFF560A6C),
-                      Colors.black,
+      body: Container(
+        color: const Color.fromRGBO(17, 17, 17, 1),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              children: [
+                // Título e artista
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment(0.0, 0.9),
+                      colors: [Color(0xFF560A6C), Colors.black],
+                    ),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Column(
+                    children: [
+                      Text(
+                        widget.musica['title'],
+                        style: GoogleFonts.poppins(
+                          color: Colors.white,
+                          fontSize: 28,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        widget.musica['artista'],
+                        style: GoogleFonts.poppins(
+                          color: Colors.white70,
+                          fontSize: 20,
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      // Imagem
+                      Image.network(
+                        widget.musica['imagem'],
+                        width: 300,
+                        height: 300,
+                        fit: BoxFit.cover,
+                      ),
                     ],
                   ),
-                  borderRadius: BorderRadius.circular(10),
                 ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
+                const SizedBox(height: 16),
+
+                // Player oculto (não exibe o player na tela)
+                SizedBox(
+                  height: 0, // Player escondido
+                  child: YoutubePlayer(
+                    controller: _youtubeController,
+                    showVideoProgressIndicator: false,
+                    progressIndicatorColor: Colors.purple,
+                    aspectRatio: 16 / 9,
+                  ),
+                ),
+
+                // Controles de reprodução
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const SizedBox(height: 10),
-                    Text(
-                      "Rainha da Pista",
+                    IconButton(
+                      icon: const Icon(Icons.skip_previous),
+                      color: Colors.white,
+                      iconSize: 30,
+                      onPressed: () {
+                        // Implementar lógica para música anterior
+                      },
+                    ),
+                    IconButton(
+                      icon: Icon(
+                        _youtubeController.value.isPlaying
+                            ? Icons.play_arrow
+                            : Icons.pause,
+                        color: Colors.white,
+                        size: 42,
+                      ),
+                      onPressed: _togglePlayPause,
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.skip_next),
+                      color: Colors.white,
+                      iconSize: 30,
+                      onPressed: () {
+                        // Implementar lógica para próxima música
+                      },
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16),
+
+                // Texto da música (somente se não for podcast)
+                if (!isPodcast)
+                  Container(
+                    padding: const EdgeInsets.all(16),
+                    margin: const EdgeInsets.symmetric(horizontal: 16),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF3E2941),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Text(
+                      widget.musica['letra'] ?? "Letra não disponível.",
                       style: GoogleFonts.poppins(
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
                         color: Colors.white,
                       ),
                       textAlign: TextAlign.center,
                     ),
-                    const SizedBox(height: 10),
-                    Text(
-                      "Cone Crew",
-                      style: GoogleFonts.poppins(
-                        fontSize: 20,
-                        color: Colors.white70,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(height: 15),
-                    Image.asset(
-                      "assets/imagensmusica/ConeCrew.png",
-                      height: 275,
-                      width: 275,
-                    ),
-                    const SizedBox(height: 5),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 32.0) +
-                          const EdgeInsets.only(top: 16.0) +
-                          const EdgeInsets.symmetric(horizontal: 32.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            _formatDuration(_position),
-                            style: GoogleFonts.montserrat(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white70,
-                            ),
-                          ),
-                          Text(
-                            _formatDuration(_duration),
-                            style: GoogleFonts.montserrat(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white70,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Slider(
-                      min: 0,
-                      max: _duration.inSeconds.toDouble(),
-                      value: _position.inSeconds.toDouble(),
-                      activeColor: Colors.white,
-                      onChanged: (value) async {
-                        await _audioPlayer
-                            .seek(Duration(seconds: value.toInt()));
-                      },
-                    ),
-                    const SizedBox(height: 5),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        IconButton(
-                          icon: const Icon(Icons.skip_previous),
-                          color: Colors.white,
-                          iconSize: 30,
-                          onPressed: () {},
-                        ),
-                        IconButton(
-                          icon: Icon(
-                            _isPlaying ? Icons.pause : Icons.play_arrow,
-                          ),
-                          color: Colors.white,
-                          iconSize: 42,
-                          onPressed: () async {
-                            if (_isPlaying) {
-                              await _pauseAudio();
-                            } else {
-                              await _playAudioFromAsset(
-                                  'musicas/rainhaDaPista.mp3');
-                            }
-                          },
-                        ),
-                        IconButton(
-                          icon: const Icon(Icons.skip_next),
-                          color: Colors.white,
-                          iconSize: 30,
-                          onPressed: () {},
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 10),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 15),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: const Color(0xFF3E2941),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        padding: const EdgeInsets.all(16),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Mas eu sei, rainha da pista que conquista quem passa',
-                              style: GoogleFonts.poppins(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: const Color.fromARGB(125, 255, 255, 255),
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                            Text(
-                              'Quente como o sol, faz sinal de fumaça',
-                              style: GoogleFonts.poppins(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: const Color.fromARGB(235, 255, 255, 255),
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                            Text(
-                              'E quando vai embora tudo fica sem graça (sem graça)',
-                              style: GoogleFonts.poppins(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: const Color.fromARGB(125, 255, 255, 255),
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                            Text(
-                              'Mas a saia dela diz onde ela quer chegar',
-                              style: GoogleFonts.poppins(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: const Color.fromARGB(125, 255, 255, 255),
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 5),
-                  ],
-                ),
-              ),
+                  ),
+                const SizedBox(height: 145),
+              ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }
