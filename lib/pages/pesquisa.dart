@@ -162,9 +162,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -201,9 +199,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -245,9 +241,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -284,9 +278,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -328,9 +320,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -367,9 +357,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -411,9 +399,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -450,9 +436,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -494,9 +478,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -533,9 +515,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -577,9 +557,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -616,9 +594,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -667,9 +643,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -706,9 +680,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -750,9 +722,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -789,9 +759,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -833,9 +801,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -872,9 +838,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -916,9 +880,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -955,9 +917,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -999,9 +959,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -1038,9 +996,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -1082,9 +1038,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -1121,9 +1075,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -1172,9 +1124,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -1211,9 +1161,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -1255,9 +1203,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -1294,9 +1240,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -1338,9 +1282,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -1377,9 +1319,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -1421,9 +1361,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -1460,9 +1398,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -1504,9 +1440,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -1543,9 +1477,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -1587,9 +1519,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
@@ -1626,9 +1556,7 @@ class PesquisaState extends State<Pesquisa> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/cadastro");
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 100,
                       width: 184,
